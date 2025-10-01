@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class Invitewidget extends StatelessWidget {
   final IconData icon;
@@ -17,43 +17,83 @@ class Invitewidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 80.w,
+      width: SizeConfig.screenWidth * 0.2,
       child: Column(
         children: [
           Container(
-            width: 45.w,
-            height: 45.h,
+            width: SizeConfig.screenWidth * 0.12,
+            height: SizeConfig.screenHeight * 0.06,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(
+                SizeConfig.screenWidth * 0.03,
+              ),
             ),
             child: Padding(
-              padding:  EdgeInsets.all(5.r),
-              child: Icon(icon, size: 34.sp),
+              padding: EdgeInsets.all(SizeConfig.screenWidth * 0.015),
+              child: Icon(icon, size: SizeConfig.screenWidth * 0.08),
             ),
           ),
-          SizedBox(height: 6.h),
+          SizedBox(height: SizeConfig.screenHeight * 0.008),
           SizedBox(
-            width: 80.w,
+            width: SizeConfig.screenWidth * 0.2,
             child: Column(
               children: [
                 Text(
                   label,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12.sp),
+                  style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
 
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                   sublabel,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12.sp),
+                  style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
                 ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class InviteRow extends StatelessWidget {
+  const InviteRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Invitewidget(
+          color: Colors.white,
+          icon: Icons.help,
+          label: 'How to',
+          sublabel: 'Refer',
+        ),
+        Invitewidget(
+          color: Colors.white,
+          icon: Icons.call,
+          label: 'Invite via',
+          sublabel: 'Whatsapp',
+        ),
+        Invitewidget(
+          color: Colors.white,
+          icon: Icons.qr_code,
+          label: 'Invite via',
+          sublabel: 'referral QR',
+        ),
+        Invitewidget(
+          color: Colors.white,
+          icon: Icons.copy,
+          label: 'Referral',
+          sublabel: 'Code',
+        ),
+      ],
     );
   }
 }

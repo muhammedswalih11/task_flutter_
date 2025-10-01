@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/features/biller/data/models.dart';
+
+class BillInfo extends StatelessWidget {
+  final Bill bill;
+
+  const BillInfo({required this.bill});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+            child: Image.asset(
+              bill.imageAsset,
+              width: SizeConfig.screenWidth * 0.06,
+              height: SizeConfig.screenWidth * 0.06,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(Icons.error, size: SizeConfig.screenWidth * 0.08);
+              },
+            ),
+          ),
+          SizedBox(width: SizeConfig.screenWidth * 0.014),
+          Text(
+            bill.name,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: SizeConfig.screenWidth * 0.04,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
