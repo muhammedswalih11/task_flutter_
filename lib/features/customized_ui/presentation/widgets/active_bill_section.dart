@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/bill_card_section.dart';
-import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/cardsections.dart';
 
 class ActiveBillerSection2 extends StatelessWidget {
   const ActiveBillerSection2({super.key});
@@ -35,6 +34,7 @@ class ActiveBillerSection2 extends StatelessWidget {
         trialIcon: Icons.arrow_upward,
       ),
     ];
+
     return Container(
       height: SizeConfig.screenHeight * 0.18,
       decoration: BoxDecoration(

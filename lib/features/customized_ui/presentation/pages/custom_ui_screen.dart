@@ -4,7 +4,6 @@ import 'package:flutter_tasks_/features/customized_ui/presentation/controllers/p
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/active_bill_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spend_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/ccbill_section.dart';
-import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/progress_bar.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/progressbar_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/rewards_large.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/cardsections.dart';
@@ -16,10 +15,44 @@ class customized_ui extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(SizeConfig.screenHeight * 0.12),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          title: Text(
+            'Customize Widgets',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: const Color.fromARGB(255, 8, 73, 126),
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 212, 226, 243),
+                  Color.fromARGB(255, 255, 255, 255),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
+          child: Container(
+            width: SizeConfig.screenWidth,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+              ),
+              border: Border(top: BorderSide(color: Colors.blue.shade50)),
+            ),
             padding: EdgeInsets.all(SizeConfig.screenWidth * 0.042),
             child: Column(
               children: [

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/point_box.dart';
-import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/points_earncard.dart';
 
 class ProgressBar extends StatelessWidget {
   ProgressBar({super.key});

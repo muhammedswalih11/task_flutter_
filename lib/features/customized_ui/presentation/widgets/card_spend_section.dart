@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spends_box.dart';
-import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/spend_row.dart';
 
 class CardSpendSection extends StatelessWidget {
   const CardSpendSection({super.key});
