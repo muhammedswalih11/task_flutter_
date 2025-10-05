@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
 import 'package:flutter_tasks_/features/biller/data/models.dart';
 
 final filterprovider = StateProvider<String>((ref) => "All Bills");
