@@ -11,22 +11,22 @@ class CardSpendsBox extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SpendRow(
-          name: 'Netflix',
-          category: 'Entertainment',
+          name: 'Oreedo',
+          category: 'Phone Bill',
           amount: 'QAR 2,636.41',
-          imagePath: 'assets/images/netflix.png',
+          imagePath: 'assets/images/ooredoo.png',
         ),
         SpendRow(
-          name: 'Prime Video',
+          name: 'Amazone Prime',
           category: 'Entertainment',
           amount: 'QAR 636.31',
           imagePath: 'assets/images/prime.png',
         ),
         SpendRow(
-          name: 'Github',
-          category: 'Version Control',
+          name: 'Make My Trip',
+          category: 'Travel',
           amount: 'QAR 234.46',
-          imagePath: 'assets/images/github.png',
+          imagePath: 'assets/images/makemytrip.png',
         ),
 
         MaterialButton(

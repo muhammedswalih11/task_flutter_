@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/delete_closebill.dart';
+import 'package:flutter_tasks_/features/biller/presentation/widgets/due_date_format.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/overlay_info.dart';
 
 void showBillOverlay(
@@ -8,7 +9,10 @@ void showBillOverlay(
   String title,
   String imagePath,
   String amount,
+  DateTime? rawDueDate,
 ) {
+  final formattedDate = rawDueDate != null ? formatDate(rawDueDate) : 'N/A';
+
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -80,7 +84,7 @@ void showBillOverlay(
                         LightDivider(),
                         infoRow('Amount Due', "$amount QAR"),
                         LightDivider(),
-                        infoRow('Next Due On', '16-09-2025'),
+                        infoRow('Next Due On', formattedDate),
                       ],
                     ),
                   ),

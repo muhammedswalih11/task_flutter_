@@ -4,6 +4,8 @@ class Bill {
   final String imageAsset;
   final String name;
   final double amount;
+  final String dueDate;
+  final DateTime? rawDueDate; //this
 
   final BillStatus status;
 
@@ -12,6 +14,8 @@ class Bill {
     required this.name,
     required this.amount,
     required this.status,
+    required this.dueDate,
+    this.rawDueDate,
   });
 }
 

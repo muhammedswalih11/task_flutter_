@@ -22,17 +22,18 @@ class BillList extends StatelessWidget {
           bill.name,
           bill.imageAsset,
           bill.amount.toString(),
+          bill.rawDueDate,
         );
       },
       child: Container(
-        height: SizeConfig.screenHeight * 0.065,
+        height: SizeConfig.screenHeight * 0.070,
         margin: EdgeInsets.symmetric(
           horizontal: SizeConfig.screenWidth * 0.020,
           vertical: SizeConfig.screenHeight * 0.008,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.screenWidth * 0.015,
-          vertical: SizeConfig.screenHeight * 0.015,
+          horizontal: SizeConfig.screenWidth * 0.024,
+          vertical: SizeConfig.screenHeight * 0.010,
         ),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -41,7 +42,7 @@ class BillList extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            BillInfo(bill: bill),
+            BillInfo(bill: bill, isPaid: isPaid),
             BillAmount(amount: bill.amount),
             BillActionButton(isPaid: isPaid, onPay: onPay),
           ],
