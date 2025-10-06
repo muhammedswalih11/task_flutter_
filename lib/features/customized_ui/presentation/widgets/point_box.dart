@@ -7,13 +7,14 @@ class pointBox extends StatelessWidget {
   final double iconSize;
   final double imageSize;
   final double fontSize;
+  final bool showBorder;
   const pointBox({
     this.height = 50,
     this.width = 50,
     this.fontSize = 14,
     this.iconSize = 15,
     this.imageSize = 17,
-
+    this.showBorder = false,
     super.key,
   });
 
@@ -25,6 +26,9 @@ class pointBox extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 195, 236, 248),
         borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+        border: showBorder
+            ? Border.all(color: Colors.blueAccent, width: 1)
+            : null,
       ),
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.012),
       child: Column(

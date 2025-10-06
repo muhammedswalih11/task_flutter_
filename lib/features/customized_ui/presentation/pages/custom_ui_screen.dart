@@ -4,6 +4,7 @@ import 'package:flutter_tasks_/features/customized_ui/presentation/controllers/p
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/active_bill_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spend_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/ccbill_section.dart';
+import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/done_button.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/progressbar_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/rewards_large.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/cardsections.dart';
@@ -30,10 +31,7 @@ class customized_ui extends StatelessWidget {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 212, 226, 243),
-                  Color.fromARGB(255, 255, 255, 255),
-                ],
+                colors: [Color.fromARGB(255, 184, 220, 236), Colors.white],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -48,21 +46,26 @@ class customized_ui extends StatelessWidget {
             width: SizeConfig.screenWidth,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
+                topLeft: Radius.circular(SizeConfig.screenWidth * 0.040),
+                topRight: Radius.circular(SizeConfig.screenWidth * 0.040),
               ),
               border: Border(top: BorderSide(color: Colors.blue.shade50)),
             ),
-            padding: EdgeInsets.all(SizeConfig.screenWidth * 0.042),
+            padding: EdgeInsets.only(top: SizeConfig.screenHeight * 0.040),
             child: Column(
               children: [
                 Align(
                   alignment: AlignmentGeometry.centerLeft,
-                  child: Text(
-                    'Pinned',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenWidth * 0.048,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.screenWidth * 0.04,
+                    ),
+                    child: Text(
+                      'Pinned',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: SizeConfig.screenWidth * 0.048,
+                      ),
                     ),
                   ),
                 ),
@@ -87,11 +90,16 @@ class customized_ui extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.036),
                 Align(
                   alignment: AlignmentGeometry.centerLeft,
-                  child: Text(
-                    'Unpinned',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenWidth * 0.048,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: SizeConfig.screenWidth * 0.04,
+                    ),
+                    child: Text(
+                      'Unpinned',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: SizeConfig.screenWidth * 0.048,
+                      ),
                     ),
                   ),
                 ),
@@ -109,6 +117,14 @@ class customized_ui extends StatelessWidget {
                   stateProvider: dropdown5Provider,
                   showTriallingIcon: false,
                   isblueIcon: false,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.045),
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: SizeConfig.screenWidth * 0.04,
+                    left: SizeConfig.screenWidth * 0.04,
+                  ),
+                  child: DoneButton(),
                 ),
               ],
             ),

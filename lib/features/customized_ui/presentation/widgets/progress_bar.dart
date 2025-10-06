@@ -21,7 +21,7 @@ class ProgressBar extends StatelessWidget {
               alignment: AlignmentGeometry.centerLeft,
               child: FractionallySizedBox(
                 alignment: AlignmentGeometry.centerLeft,
-                widthFactor: 0.8,
+                widthFactor: 0.75,
                 child: Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 84, 170, 240),

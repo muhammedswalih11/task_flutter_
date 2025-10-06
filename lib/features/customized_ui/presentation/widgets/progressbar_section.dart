@@ -9,49 +9,56 @@ class ProgressBarSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 226, 228, 230),
-        borderRadius: BorderRadius.circular(
-          SizeConfig.screenWidth * 0.035,
-        ), // 14.r
+    return Padding(
+      padding: EdgeInsets.only(
+        right: SizeConfig.screenWidth * 0.04,
+        left: SizeConfig.screenWidth * 0.04,
       ),
-      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.035),
-      child: Column(
-        children: [
-          const PointsEarnCard(),
-          SizedBox(height: SizeConfig.screenHeight * 0.02),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(
-                SizeConfig.screenWidth * 0.045,
+      child: Container(
+        decoration: BoxDecoration(
+          // color: const Color.fromARGB(255, 230, 238, 243),
+          color: Colors.blueGrey.shade50,
+
+          borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.035),
+          border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
+        ),
+        padding: EdgeInsets.all(SizeConfig.screenWidth * 0.035),
+        child: Column(
+          children: [
+            const PointsEarnCard(),
+            SizedBox(height: SizeConfig.screenHeight * 0.02),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  SizeConfig.screenWidth * 0.045,
+                ),
+                color: Colors.white,
               ),
-              color: Colors.white,
-            ),
-            padding: EdgeInsets.all(SizeConfig.screenWidth * 0.035),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const pointBox(),
-                    SizedBox(width: SizeConfig.screenWidth * 0.025),
-                    Expanded(
-                      child: Text(
-                        'claim upto 150 reward points\nafter reaching the\nnext transaction goal',
-                        style: TextStyle(
-                          fontSize: SizeConfig.screenWidth * 0.04,
-                          fontWeight: FontWeight.w500,
+              padding: EdgeInsets.all(SizeConfig.screenWidth * 0.035),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const pointBox(),
+                      SizedBox(width: SizeConfig.screenWidth * 0.025),
+                      Expanded(
+                        child: Text(
+                          'claim upto 150 reward points\nafter reaching the\nnext transaction goal',
+                          style: TextStyle(
+                            fontSize: SizeConfig.screenWidth * 0.04,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
-                ProgressBar(),
-              ],
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  ProgressBar(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

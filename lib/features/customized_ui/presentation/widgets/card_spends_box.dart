@@ -1,39 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/spend_row.dart';
 
 class CardSpendsBox extends StatelessWidget {
-  const CardSpendsBox({super.key});
+  CardSpendsBox({super.key});
+
+  final List<spendItem> spendItems = [
+    spendItem(
+      name: 'Oreedo',
+      category: 'Phone Bill',
+      amount: 'QAR 2,636.41',
+      imagePath: 'assets/images/ooredoo.png',
+    ),
+    spendItem(
+      name: 'Amazone Prime',
+      category: 'Entertainment',
+      amount: 'QAR 636.31',
+      imagePath: 'assets/images/prime.png',
+    ),
+    spendItem(
+      name: 'Make My Trip',
+      category: 'Travel',
+      amount: 'QAR 234.46',
+      imagePath: 'assets/images/makemytrip.png',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SpendRow(
-          name: 'Oreedo',
-          category: 'Phone Bill',
-          amount: 'QAR 2,636.41',
-          imagePath: 'assets/images/ooredoo.png',
+        ...spendItems.map(
+          (item) => SpendRow(
+            name: item.name,
+            category: item.category,
+            amount: item.amount,
+            imagePath: item.imagePath,
+          ),
         ),
-        SpendRow(
-          name: 'Amazone Prime',
-          category: 'Entertainment',
-          amount: 'QAR 636.31',
-          imagePath: 'assets/images/prime.png',
-        ),
-        SpendRow(
-          name: 'Make My Trip',
-          category: 'Travel',
-          amount: 'QAR 234.46',
-          imagePath: 'assets/images/makemytrip.png',
-        ),
-
         MaterialButton(
           minWidth: double.infinity,
           onPressed: () {},
           shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.blue),
+            side: BorderSide(color: Color.fromARGB(255, 8, 73, 126)),
             borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.05),
           ),
           child: Row(
@@ -42,7 +53,7 @@ class CardSpendsBox extends StatelessWidget {
               Text(
                 'View all spends',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 8, 73, 126),
                   fontSize: SizeConfig.screenWidth * 0.038,
                 ),
               ),
@@ -51,7 +62,7 @@ class CardSpendsBox extends StatelessWidget {
                 angle: 0.5,
                 child: Icon(
                   Icons.arrow_upward,
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 8, 73, 126),
                   size: SizeConfig.screenWidth * 0.05,
                 ),
               ),

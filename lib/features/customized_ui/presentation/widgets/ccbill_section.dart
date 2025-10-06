@@ -6,65 +6,78 @@ class CcBillSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 226, 228, 230),
-        borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+    return Padding(
+      padding: EdgeInsets.only(
+        right: SizeConfig.screenWidth * 0.04,
+        left: SizeConfig.screenWidth * 0.04,
       ),
-      child: Padding(
-        padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
-        child: Container(
-          padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'September\nStatement',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: SizeConfig.screenWidth * 0.030,
-                ),
+      child: Container(
+        decoration: BoxDecoration(
+          // color: const Color.fromARGB(255, 230, 238, 243),
+          color: Colors.blueGrey.shade50,
+
+          borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+          border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
+          child: Container(
+            padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(
+                SizeConfig.screenWidth * 0.03,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'QAR 2,636.41',
-                    style: TextStyle(fontSize: SizeConfig.screenWidth * 0.042),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'September\nStatement',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: SizeConfig.screenWidth * 0.030,
                   ),
-                  Text(
-                    'Due on the 12th October',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: SizeConfig.screenWidth * 0.033,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'QAR 2,636.41',
+                      style: TextStyle(
+                        fontSize: SizeConfig.screenWidth * 0.042,
+                      ),
+                    ),
+                    Text(
+                      'Due on the 12th October',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: SizeConfig.screenWidth * 0.033,
+                      ),
+                    ),
+                  ],
+                ),
+                MaterialButton(
+                  height: SizeConfig.screenHeight * 0.030,
+                  minWidth: SizeConfig.screenWidth * 0.15,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Color.fromARGB(255, 8, 73, 126)),
+                    borderRadius: BorderRadius.circular(
+                      SizeConfig.screenWidth * 0.045,
                     ),
                   ),
-                ],
-              ),
-              MaterialButton(
-                height: SizeConfig.screenHeight * 0.030,
-                minWidth: SizeConfig.screenWidth * 0.15,
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.blue),
-                  borderRadius: BorderRadius.circular(
-                    SizeConfig.screenWidth * 0.045,
-                  ),
-                ),
 
-                onPressed: () {},
-                child: Text(
-                  'Pay',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: SizeConfig.screenWidth * 0.036,
+                  onPressed: () {},
+                  child: Text(
+                    'Pay',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 8, 73, 126),
+                      fontSize: SizeConfig.screenWidth * 0.036,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

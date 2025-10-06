@@ -34,33 +34,70 @@ class ActiveBillerSection2 extends StatelessWidget {
         trialIcon: Icons.arrow_upward,
       ),
     ];
+    final containerHeight = SizeConfig.screenHeight * 0.18;
 
-    return Container(
-      height: SizeConfig.screenHeight * 0.18,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 226, 228, 230),
-        borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.035),
-      ),
-      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.033),
-      child: SizedBox(
-        height: SizeConfig.screenHeight * 0.21,
-        width: SizeConfig.screenWidth,
-
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: billCards.length,
-          itemBuilder: (context, index) {
-            final card = billCards[index];
-            return Padding(
-              padding: EdgeInsets.only(right: SizeConfig.screenWidth * 0.03),
-              child: BillCards(
-                imageUrl: card.imageUrl,
-                title: card.title,
-                amount: card.amount,
-                trialicon: card.trialIcon,
+    return SizedBox(
+      width: double.infinity,
+      child: Container(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                right: SizeConfig.screenWidth * 0.04,
+                left: SizeConfig.screenWidth * 0.04,
               ),
-            );
-          },
+              child: Container(
+                height: SizeConfig.screenHeight * 0.18,
+
+                decoration: BoxDecoration(
+                  // color: const Color.fromARGB(255, 230, 238, 243),
+                  color: Colors.blueGrey.shade50,
+
+                  borderRadius: BorderRadius.circular(
+                    SizeConfig.screenWidth * 0.035,
+                  ),
+                  border: Border.all(
+                    color: Colors.blueGrey.shade200,
+                    width: 0.6,
+                  ),
+                ),
+              ),
+            ),
+
+            Positioned(
+              top: containerHeight / 2 - 75,
+              left: 0,
+              right: 0,
+              child: SizedBox(
+                width: double.infinity,
+                height: SizeConfig.screenHeight * 0.15,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: SizeConfig.screenWidth * 0.014,
+                  ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: billCards.length,
+                    itemBuilder: (context, index) {
+                      final card = billCards[index];
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          left: SizeConfig.screenWidth * 0.065,
+                        ),
+                        child: BillCards(
+                          imageUrl: card.imageUrl,
+                          title: card.title,
+                          amount: card.amount,
+                          trialicon: card.trialIcon,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

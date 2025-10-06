@@ -36,4 +36,22 @@ final List<RewardBoxModel> rewardBoxes = [
     title: '2 more transaction away\nfrom unlocking this\nreward',
     progressPercentage: 0.7,
   ),
+  RewardBoxModel(
+    type: RewardBoxType.white,
+    title: '2 transaction away\nfrom unlocking this\nreward',
+    progressPercentage: 0.7,
+  ),
 ];
+
+class spendItem {
+  final String name;
+  final String category;
+  final String amount;
+  final String imagePath;
+  spendItem({
+    required this.name,
+    required this.category,
+    required this.amount,
+    required this.imagePath,
+  });
+}

@@ -24,73 +24,80 @@ class CardSections extends ConsumerWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: SizedBox(
-                height: SizeConfig.screenHeight * 0.07,
-                child: Card(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      SizeConfig.screenWidth * 0.04,
+        Padding(
+          padding: EdgeInsets.only(
+            right: SizeConfig.screenWidth * 0.03,
+            left: SizeConfig.screenWidth * 0.03,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: SizeConfig.screenHeight * 0.066,
+                  child: Card(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        SizeConfig.screenWidth * 0.04,
+                      ),
+                      side: BorderSide(
+                        color: Colors.blueGrey.shade200,
+                        width: 0.6,
+                      ),
                     ),
-                    side: BorderSide(
-                      color: const Color.fromARGB(137, 61, 59, 59),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
-                    child: Row(
-                      children: [
-                        Transform.rotate(
-                          angle: 0.5,
-                          child: Icon(
-                            Icons.push_pin,
-                            color: isblueIcon ? Colors.blue : Colors.white,
-                            size: SizeConfig.screenWidth * 0.05,
-                            shadows: [
-                              Shadow(
-                                offset: Offset(0, 0),
-                                blurRadius: 3,
-                                color: Colors.black,
-                              ),
-                            ],
+                    child: Padding(
+                      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
+                      child: Row(
+                        children: [
+                          Transform.rotate(
+                            angle: 0.5,
+                            child: Icon(
+                              Icons.push_pin,
+                              color: isblueIcon ? Colors.blue : Colors.white,
+                              size: SizeConfig.screenWidth * 0.05,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 0),
+                                  blurRadius: 3,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(width: SizeConfig.screenWidth * 0.02),
-                        Text(
-                          title,
-                          style: TextStyle(
-                            fontSize: SizeConfig.screenWidth * 0.042,
+                          SizedBox(width: SizeConfig.screenWidth * 0.02),
+                          Text(
+                            title,
+                            style: TextStyle(
+                              fontSize: SizeConfig.screenWidth * 0.042,
+                            ),
                           ),
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {
-                            ref.read(stateProvider.notifier).state =
-                                !isExpanded;
-                          },
-                          icon: Icon(
-                            isExpanded
-                                ? Icons.keyboard_arrow_up
-                                : Icons.keyboard_arrow_down,
-                            size: SizeConfig.screenWidth * 0.05,
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              ref.read(stateProvider.notifier).state =
+                                  !isExpanded;
+                            },
+                            icon: Icon(
+                              isExpanded
+                                  ? Icons.keyboard_arrow_up
+                                  : Icons.keyboard_arrow_down,
+                              size: SizeConfig.screenWidth * 0.05,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            if (showTriallingIcon)
-              Image.asset(
-                'assets/images/drag.png',
-                width: SizeConfig.screenWidth * 0.06,
-                height: SizeConfig.screenHeight * 0.06,
-              ),
-          ],
+              if (showTriallingIcon)
+                Image.asset(
+                  'assets/images/drag.png',
+                  width: SizeConfig.screenWidth * 0.06,
+                  height: SizeConfig.screenHeight * 0.06,
+                ),
+            ],
+          ),
         ),
         if (isExpanded) dropdownChild,
       ],
