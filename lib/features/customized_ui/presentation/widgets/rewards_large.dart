@@ -26,7 +26,6 @@ class RewardsLaregSection extends StatelessWidget {
               ),
               child: Container(
                 decoration: BoxDecoration(
-                  // color: const Color.fromARGB(255, 230, 238, 243),
                   color: Colors.blueGrey.shade50,
                   borderRadius: BorderRadius.circular(
                     SizeConfig.screenWidth * 0.04,

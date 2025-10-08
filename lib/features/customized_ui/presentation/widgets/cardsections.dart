@@ -46,7 +46,10 @@ class CardSections extends ConsumerWidget {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
+                      padding: EdgeInsets.only(
+                        right: SizeConfig.screenWidth * 0.02,
+                        left: SizeConfig.screenWidth * 0.02,
+                      ),
                       child: Row(
                         children: [
                           Transform.rotate(
@@ -81,7 +84,7 @@ class CardSections extends ConsumerWidget {
                               isExpanded
                                   ? Icons.keyboard_arrow_up
                                   : Icons.keyboard_arrow_down,
-                              size: SizeConfig.screenWidth * 0.05,
+                              size: SizeConfig.screenWidth * 0.06,
                             ),
                           ),
                         ],

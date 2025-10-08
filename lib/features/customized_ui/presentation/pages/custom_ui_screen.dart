@@ -9,12 +9,53 @@ import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/progr
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/rewards_large.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/cardsections.dart';
 
-class customized_ui extends StatelessWidget {
-  const customized_ui({super.key});
+class CustomizedUI extends StatelessWidget {
+  const CustomizedUI({super.key});
 
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
+
+    final List<Map<String, dynamic>> sectionList = [
+      {'type': 'header', 'title': 'Pinned'},
+      {
+        'type': 'card',
+        'title': 'Your Active Billers',
+        'widget': ActiveBillerSection2(),
+        'provider': dropdown1Provider,
+      },
+      {
+        'type': 'card',
+        'title': 'Card Spends',
+        'widget': CardSpendSection(),
+        'provider': dropdown2Provider,
+      },
+      {
+        'type': 'card',
+        'title': 'Credit Card Bills',
+        'widget': CcBillSection(),
+        'provider': dropdown3Provider,
+      },
+      {'type': 'header', 'title': 'Unpinned'},
+      {
+        'type': 'card',
+        'title': 'Rewards (Condensed)',
+        'widget': ProgressBarSection(),
+        'provider': dropdown4Provider,
+        'showTrailingIcon': false,
+        'isBlueIcon': false,
+      },
+      {
+        'type': 'card',
+        'title': 'Rewards(Large)',
+        'widget': RewardsLaregSection(),
+        'provider': dropdown5Provider,
+        'showTrailingIcon': false,
+        'isBlueIcon': false,
+      },
+      {'type': 'button'},
+    ];
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(SizeConfig.screenHeight * 0.12),
@@ -41,93 +82,63 @@ class customized_ui extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            width: SizeConfig.screenWidth,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(SizeConfig.screenWidth * 0.040),
-                topRight: Radius.circular(SizeConfig.screenWidth * 0.040),
-              ),
-              border: Border(top: BorderSide(color: Colors.blue.shade50)),
+        child: Container(
+          width: SizeConfig.screenWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(SizeConfig.screenWidth * 0.040),
+              topRight: Radius.circular(SizeConfig.screenWidth * 0.040),
             ),
-            padding: EdgeInsets.only(top: SizeConfig.screenHeight * 0.040),
-            child: Column(
-              children: [
-                Align(
-                  alignment: AlignmentGeometry.centerLeft,
-                  child: Padding(
+            border: Border(top: BorderSide(color: Colors.blue.shade50)),
+          ),
+          child: ListView.builder(
+            itemCount: sectionList.length,
+            itemBuilder: (context, index) {
+              final item = sectionList[index];
+              switch (item['type']) {
+                case 'header':
+                  return Padding(
                     padding: EdgeInsets.only(
+                      top: SizeConfig.screenHeight * 0.036,
+                      // bottom: SizeConfig.screenHeight * 0.015,
                       left: SizeConfig.screenWidth * 0.04,
                     ),
                     child: Text(
-                      'Pinned',
+                      item['title'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: SizeConfig.screenWidth * 0.048,
                       ),
                     ),
-                  ),
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.015),
-                CardSections(
-                  stateProvider: dropdown1Provider,
-                  title: 'Your Active Billers',
-                  dropdownChild: ActiveBillerSection2(),
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.012),
-                CardSections(
-                  stateProvider: dropdown2Provider,
-                  title: 'Card Spends',
-                  dropdownChild: CardSpendSection(),
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.012),
-                CardSections(
-                  stateProvider: dropdown3Provider,
-                  title: 'Credit Card Bills',
-                  dropdownChild: CcBillSection(),
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.036),
-                Align(
-                  alignment: AlignmentGeometry.centerLeft,
-                  child: Padding(
+                  );
+
+                case 'card':
+                  return Padding(
                     padding: EdgeInsets.only(
-                      left: SizeConfig.screenWidth * 0.04,
+                      bottom: SizeConfig.screenHeight * 0.012,
                     ),
-                    child: Text(
-                      'Unpinned',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.screenWidth * 0.048,
-                      ),
+                    child: CardSections(
+                      title: item['title'],
+                      dropdownChild: item['widget'],
+                      stateProvider: item['provider'],
+                      showTriallingIcon: item['showTrailingIcon'] ?? true,
+                      isblueIcon: item['isBlueIcon'] ?? true,
                     ),
-                  ),
-                ),
-                CardSections(
-                  title: 'Rewards (Condensed)',
-                  dropdownChild: ProgressBarSection(),
-                  stateProvider: dropdown4Provider,
-                  showTriallingIcon: false,
-                  isblueIcon: false,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.012),
-                CardSections(
-                  title: 'Rewards(Large)',
-                  dropdownChild: RewardsLaregSection(),
-                  stateProvider: dropdown5Provider,
-                  showTriallingIcon: false,
-                  isblueIcon: false,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.045),
-                Padding(
-                  padding: EdgeInsets.only(
-                    right: SizeConfig.screenWidth * 0.04,
-                    left: SizeConfig.screenWidth * 0.04,
-                  ),
-                  child: DoneButton(),
-                ),
-              ],
-            ),
+                  );
+
+                case 'button':
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      top: SizeConfig.screenHeight * 0.045,
+                      bottom: SizeConfig.screenHeight * 0.02,
+                    ),
+                    child: DoneButton(),
+                  );
+
+                default:
+                  return SizedBox.shrink();
+              }
+            },
           ),
         ),
       ),

@@ -34,7 +34,6 @@ class ActiveBillerSection2 extends StatelessWidget {
         trialIcon: Icons.arrow_upward,
       ),
     ];
-    final containerHeight = SizeConfig.screenHeight * 0.18;
 
     return SizedBox(
       width: double.infinity,
@@ -51,7 +50,6 @@ class ActiveBillerSection2 extends StatelessWidget {
                 height: SizeConfig.screenHeight * 0.18,
 
                 decoration: BoxDecoration(
-                  // color: const Color.fromARGB(255, 230, 238, 243),
                   color: Colors.blueGrey.shade50,
 
                   borderRadius: BorderRadius.circular(
@@ -66,34 +64,29 @@ class ActiveBillerSection2 extends StatelessWidget {
             ),
 
             Positioned(
-              top: containerHeight / 2 - 75,
+              top: SizeConfig.screenHeight * 0.015,
               left: 0,
               right: 0,
               child: SizedBox(
                 width: double.infinity,
                 height: SizeConfig.screenHeight * 0.15,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: SizeConfig.screenWidth * 0.014,
-                  ),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: billCards.length,
-                    itemBuilder: (context, index) {
-                      final card = billCards[index];
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          left: SizeConfig.screenWidth * 0.065,
-                        ),
-                        child: BillCards(
-                          imageUrl: card.imageUrl,
-                          title: card.title,
-                          amount: card.amount,
-                          trialicon: card.trialIcon,
-                        ),
-                      );
-                    },
-                  ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: billCards.length,
+                  itemBuilder: (context, index) {
+                    final card = billCards[index];
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        left: SizeConfig.screenWidth * 0.076,
+                      ),
+                      child: BillCards(
+                        imageUrl: card.imageUrl,
+                        title: card.title,
+                        amount: card.amount,
+                        trialicon: card.trialIcon,
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
