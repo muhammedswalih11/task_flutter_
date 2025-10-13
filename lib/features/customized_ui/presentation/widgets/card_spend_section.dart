@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spends_box.dart';
 
@@ -7,6 +9,7 @@ class CardSpendSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Padding(
       padding: EdgeInsets.only(
         right: SizeConfig.screenWidth * 0.04,
@@ -58,7 +61,7 @@ class CardSpendSection extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
                 child: Text(
-                  'Your recent Spends',
+                  s.cardSpendHeader,
                   style: TextStyle(
                     fontSize: SizeConfig.screenWidth * 0.028,
                     fontWeight: FontWeight.bold,

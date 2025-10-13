@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/presentation/controllers/providers.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/bill_section.dart';
@@ -17,6 +19,7 @@ class BillsScreen extends ConsumerWidget {
     final activeBills = ref.watch(filteredActiveBillProvider);
     final paidBills = ref.watch(filteredPaidBillsProvider);
     final selectedToggle = ref.watch(toggleProvider);
+    final s = DefaultStrings.instance;
     SizeConfig.init(context);
 
     return Scaffold(
@@ -64,12 +67,12 @@ class BillsScreen extends ConsumerWidget {
               ),
             ),
             BillSection(
-              title: 'Your Active Bills',
+              title: s.activeBillTitle,
               bills: activeBills,
               isPaidSection: false,
             ),
             BillSection(
-              title: 'Your Paid Bills',
+              title: s.paidBillTitle,
               bills: paidBills,
               isPaidSection: true,
             ),
@@ -84,10 +87,10 @@ class BillsScreen extends ConsumerWidget {
                   'assets/icons/phone.png',
                 ],
                 labels: [
-                  ["Mobile", "Recharge"],
-                  ["DTH", "Recharge"],
-                  ["Broadband", "Recharge"],
-                  ["Landline", "Recharge"],
+                  [s.btMobileText, s.rechargeButtonText],
+                  [s.btDthtext, s.rechargeButtonText],
+                  [s.btBroadbandtext, s.rechargeButtonText],
+                  [s.btLandlineText, s.rechargeButtonText],
                 ],
               ),
             ),

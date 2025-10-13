@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/amount_recharge.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/header.dart';
@@ -7,6 +9,7 @@ class RechargeAndBalancesSection extends StatelessWidget {
   const RechargeAndBalancesSection();
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Padding(
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.04),
       child: Column(
@@ -43,7 +46,7 @@ class RechargeAndBalancesSection extends StatelessWidget {
                         SizedBox(width: SizeConfig.screenHeight * 0.012),
 
                         Text(
-                          'Vodafone',
+                          s.billBrandName4,
                           style: TextStyle(
                             fontSize: SizeConfig.screenWidth * 0.035,
                           ),
@@ -52,7 +55,7 @@ class RechargeAndBalancesSection extends StatelessWidget {
                     ),
 
                     Text(
-                      'Mobile Recharge',
+                      s.rechargeTypeText,
                       style: TextStyle(
                         fontSize: SizeConfig.screenWidth * 0.035,
                       ),

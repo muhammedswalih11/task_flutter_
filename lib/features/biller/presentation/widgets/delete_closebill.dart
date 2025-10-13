@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/bottom_sheet.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class DeleteBill extends StatelessWidget {
@@ -6,6 +8,7 @@ class DeleteBill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Container(
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
       decoration: BoxDecoration(
@@ -28,14 +31,14 @@ class DeleteBill extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Delete Biller',
+                s.deleteBillText,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: SizeConfig.screenWidth * 0.04,
                 ),
               ),
               Text(
-                'You will stop Tracking the biller if you delete it',
+                s.deleteBillSubtext,
                 style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
               ),
             ],

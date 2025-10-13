@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/data/models.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/bill_list_section.dart';
@@ -17,6 +19,7 @@ class BillSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (bills.isEmpty) return SliverToBoxAdapter(child: SizedBox.shrink());
+    final s = DefaultStrings.instance;
     return SliverList.list(
       children: [
         Padding(
@@ -39,7 +42,7 @@ class BillSection extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Add New Biller',
+                  s.addBillText,
                   style: TextStyle(
                     color: Colors.blue,
                     fontSize: SizeConfig.screenWidth * 0.035,

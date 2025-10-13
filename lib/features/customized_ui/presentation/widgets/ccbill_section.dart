@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class CcBillSection extends StatelessWidget {
@@ -6,6 +8,7 @@ class CcBillSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Padding(
       padding: EdgeInsets.only(
         right: SizeConfig.screenWidth * 0.04,
@@ -32,7 +35,7 @@ class CcBillSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'September\nStatement',
+                  s.ccstatementMonth,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: SizeConfig.screenWidth * 0.030,
@@ -42,13 +45,13 @@ class CcBillSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'QAR 2,636.41',
+                      s.ccDueAmount,
                       style: TextStyle(
                         fontSize: SizeConfig.screenWidth * 0.042,
                       ),
                     ),
                     Text(
-                      'Due on the 12th October',
+                      s.ccDueDate,
                       style: TextStyle(
                         color: Colors.red,
                         fontSize: SizeConfig.screenWidth * 0.033,
@@ -68,7 +71,7 @@ class CcBillSection extends StatelessWidget {
 
                   onPressed: () {},
                   child: Text(
-                    'Pay',
+                    s.ccPayButtontext,
                     style: TextStyle(
                       color: Color.fromARGB(255, 8, 73, 126),
                       fontSize: SizeConfig.screenWidth * 0.036,

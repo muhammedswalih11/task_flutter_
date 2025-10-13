@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+
+final s = DefaultStrings.instance;
 
 class Header1 extends StatelessWidget {
   const Header1({super.key});
@@ -13,7 +17,7 @@ class Header1 extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         Text(
-          "Billers",
+          s.billerTitle,
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.05,
             fontWeight: FontWeight.bold,
@@ -33,15 +37,16 @@ class Header2 extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "You have ",
+          s.headerA,
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.05,
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(width: SizeConfig.screenWidth * 0.02),
         Text(
-          "4 bills due",
+          s.headerB,
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.05,
             color: Colors.blue,
@@ -59,7 +64,7 @@ class SubHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "Pay and manage Billers and Recharges",
+      s.subHeader,
       style: TextStyle(fontSize: SizeConfig.screenWidth * 0.035),
     );
   }
@@ -74,7 +79,7 @@ class RechargeHeadText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Recharge and Balances',
+          s.rechargeSectionTitle,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.045,
@@ -83,7 +88,7 @@ class RechargeHeadText extends StatelessWidget {
         TextButton(
           onPressed: () {},
           child: Text(
-            'Add Recharge',
+            s.addRechargeText,
             style: TextStyle(
               color: Colors.blue,
               fontSize: SizeConfig.screenWidth * 0.035,

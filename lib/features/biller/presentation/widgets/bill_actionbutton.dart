@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class BillActionButton extends StatelessWidget {
@@ -9,6 +11,7 @@ class BillActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Expanded(
       flex: 1,
       child: Align(
@@ -38,10 +41,10 @@ class BillActionButton extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  'Pay',
+                  s.billcardPayText,
                   style: TextStyle(
                     color: Color.fromARGB(255, 12, 66, 111),
-                    fontSize: SizeConfig.screenWidth * 0.035,
+                    fontSize: SizeConfig.screenWidth * 0.030,
                   ),
                 ),
               ),

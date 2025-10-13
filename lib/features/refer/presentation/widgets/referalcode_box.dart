@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
 
@@ -9,6 +12,7 @@ class ReferalcodeBox extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final s = DefaultStrings.instance;
     final code = ref.watch(referralCodeprovider);
 
     return Container(
@@ -21,7 +25,7 @@ class ReferalcodeBox extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Your Referral Code',
+            s.referBoxHeader,
             style: TextStyle(
               color: Colors.black,
               fontSize: SizeConfig.screenWidth * 0.035,
@@ -49,7 +53,7 @@ class ReferalcodeBox extends ConsumerWidget {
                         await Clipboard.setData(ClipboardData(text: code));
                         ScaffoldMessenger.of(
                           context,
-                        ).showSnackBar(SnackBar(content: Text("Text Copied")));
+                        ).showSnackBar(SnackBar(content: Text(s.copyText)));
                       },
                       icon: Icon(
                         Icons.copy,
@@ -72,7 +76,7 @@ class ReferalcodeBox extends ConsumerWidget {
             color: const Color.fromARGB(255, 8, 79, 138),
             onPressed: () {},
             child: Text(
-              "Share and Earn",
+              s.shareandEarnText,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: SizeConfig.screenWidth * 0.035,

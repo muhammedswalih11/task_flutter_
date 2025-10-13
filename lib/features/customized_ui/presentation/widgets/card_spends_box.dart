@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/spend_row.dart';
 
 class CardSpendsBox extends StatelessWidget {
   CardSpendsBox({super.key});
-
-  final List<spendItem> spendItems = [
+  final s = DefaultStrings.instance;
+  List<spendItem> get spendItems => [
     spendItem(
-      name: 'Oreedo',
-      category: 'Phone Bill',
-      amount: 'QAR 2,636.41',
+      name: s.billOoreedo,
+      category: s.ooreedoCategory,
+      amount: s.ooreedoSpendAmount,
       imagePath: 'assets/images/ooredoo.png',
     ),
     spendItem(
-      name: 'Amazone Prime',
-      category: 'Entertainment',
-      amount: 'QAR 636.31',
+      name: s.billBrandName2,
+      category: s.primeCategory,
+      amount: s.primeSpendAmount,
       imagePath: 'assets/images/prime.png',
     ),
     spendItem(
-      name: 'Make My Trip',
-      category: 'Travel',
-      amount: 'QAR 234.46',
+      name: s.billMakemyTrip,
+      category: s.makemyTripCategory,
+      amount: s.tripSpendAmount,
       imagePath: 'assets/images/makemytrip.png',
     ),
   ];
@@ -51,7 +54,7 @@ class CardSpendsBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'View all spends',
+                s.cardSpenButtonText,
                 style: TextStyle(
                   color: Color.fromARGB(255, 8, 73, 126),
                   fontSize: SizeConfig.screenWidth * 0.038,

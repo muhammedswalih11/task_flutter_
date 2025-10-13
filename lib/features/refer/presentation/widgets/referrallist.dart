@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/refer/data/models/contactmodel.dart';
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
@@ -14,6 +16,7 @@ class Referrallist extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedList = ref.watch(selectedReferralProvider);
     final isSelected = selectedList.contains(id);
+    final s = DefaultStrings.instance;
     return ListTile(
       contentPadding: EdgeInsets.symmetric(
         vertical: SizeConfig.screenHeight * 0.007,
@@ -52,7 +55,7 @@ class Referrallist extends ConsumerWidget {
           ),
           SizedBox(width: SizeConfig.screenWidth * 0.018),
           Text(
-            'Invite and win 20 QAR',
+            s.inviteNwinText,
             style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
           ),
         ],

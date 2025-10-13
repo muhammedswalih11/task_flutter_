@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class ReferHeaders1 extends StatelessWidget {
-  const ReferHeaders1({super.key});
+  final s = DefaultStrings.instance;
+  ReferHeaders1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class ReferHeaders1 extends StatelessWidget {
           icon: Icon(Icons.arrow_back, size: SizeConfig.screenWidth * 0.06),
         ),
         Text(
-          'Refer and Earn',
+          s.referpageTitle,
           style: TextStyle(
             color: const Color.fromARGB(255, 21, 77, 122),
             fontWeight: FontWeight.bold,

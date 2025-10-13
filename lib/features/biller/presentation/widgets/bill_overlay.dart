@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/bottom_sheet.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/delete_closebill.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/due_date_format.dart';
@@ -12,6 +15,7 @@ void showBillOverlay(
   DateTime? rawDueDate,
 ) {
   final formattedDate = rawDueDate != null ? formatDate(rawDueDate) : 'N/A';
+  final s = DefaultStrings.instance;
 
   showModalBottomSheet(
     context: context,
@@ -37,7 +41,7 @@ void showBillOverlay(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Manage Biller",
+                      s.title,
                       style: TextStyle(
                         fontSize: SizeConfig.screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
@@ -80,11 +84,11 @@ void showBillOverlay(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        infoRow('Account Name', 'Alqabiadi'),
+                        infoRow(s.acnameText, s.accountName),
                         LightDivider(),
-                        infoRow('Amount Due', "$amount QAR"),
+                        infoRow(s.amountDueText, '${amount}${s.currencyQAR}'),
                         LightDivider(),
-                        infoRow('Next Due On', formattedDate),
+                        infoRow(s.dueDateText, formattedDate),
                       ],
                     ),
                   ),

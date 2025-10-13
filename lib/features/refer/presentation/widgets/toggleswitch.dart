@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
 
@@ -15,9 +16,9 @@ class Toggleswitch extends ConsumerWidget {
         MaterialButton(
           minWidth: SizeConfig.screenWidth * 0.18,
           onPressed: () {
-            ref.read(selectedButtonProvider.notifier).state = "All";
+            ref.read(selectedButtonProvider.notifier).state = s.referToggleA;
           },
-          color: selected == "All"
+          color: selected == s.referToggleA
               ? const Color.fromARGB(255, 21, 77, 122)
               : Colors.white,
           shape: RoundedRectangleBorder(
@@ -25,9 +26,9 @@ class Toggleswitch extends ConsumerWidget {
             side: BorderSide(color: Color.fromARGB(255, 21, 77, 122)),
           ),
           child: Text(
-            'All',
+            s.referToggleA,
             style: TextStyle(
-              color: selected == "All"
+              color: selected == s.referToggleA
                   ? Colors.white
                   : const Color.fromARGB(255, 21, 77, 122),
               fontSize: SizeConfig.screenWidth * 0.035,
@@ -38,9 +39,9 @@ class Toggleswitch extends ConsumerWidget {
         MaterialButton(
           minWidth: SizeConfig.screenWidth * 0.35,
           onPressed: () {
-            ref.read(selectedButtonProvider.notifier).state = "Recent";
+            ref.read(selectedButtonProvider.notifier).state = s.referToggleB;
           },
-          color: selected == "Recent"
+          color: selected == s.referToggleB
               ? const Color.fromARGB(255, 21, 77, 122)
               : Colors.white,
           shape: RoundedRectangleBorder(
@@ -48,9 +49,9 @@ class Toggleswitch extends ConsumerWidget {
             side: BorderSide(color: const Color.fromARGB(255, 21, 77, 122)),
           ),
           child: Text(
-            'Recently Transacted ',
+            s.referToggleB,
             style: TextStyle(
-              color: selected == "Recent"
+              color: selected == s.referToggleB
                   ? Colors.white
                   : const Color.fromARGB(255, 21, 77, 122),
               fontSize: SizeConfig.screenWidth * 0.035,

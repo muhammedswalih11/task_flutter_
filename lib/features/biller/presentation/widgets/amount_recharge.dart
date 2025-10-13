@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class AmountRecharge extends StatelessWidget {
@@ -6,11 +8,12 @@ class AmountRecharge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '23.00 QAR',
+          s.vodafoneRechargeAmount,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.045,
@@ -32,7 +35,7 @@ class AmountRecharge extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Recharge',
+            s.rechargeButtonText,
             style: TextStyle(
               color: Color.fromARGB(255, 12, 66, 111),
               fontSize: SizeConfig.screenWidth * 0.035,

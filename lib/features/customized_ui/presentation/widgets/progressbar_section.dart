@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/point_box.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/points_earncard.dart';
@@ -9,6 +11,7 @@ class ProgressBarSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     return Padding(
       padding: EdgeInsets.only(
         right: SizeConfig.screenWidth * 0.04,
@@ -42,7 +45,7 @@ class ProgressBarSection extends StatelessWidget {
                       SizedBox(width: SizeConfig.screenWidth * 0.025),
                       Expanded(
                         child: Text(
-                          'claim upto 150 reward points\nafter reaching the\nnext transaction goal',
+                          s.rcClaimText,
                           style: TextStyle(
                             fontSize: SizeConfig.screenWidth * 0.04,
                             fontWeight: FontWeight.w500,

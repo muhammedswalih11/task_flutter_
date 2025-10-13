@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+
+final s = DefaultStrings.instance;
 
 class Invitewidget extends StatelessWidget {
   final IconData icon;
   final String label;
-  final String sublabel;
+  // final String sublabel;
   final Color color;
   const Invitewidget({
     required this.icon,
     required this.label,
-    required this.sublabel,
+    // required this.sublabel,
     required this.color,
     super.key,
   });
@@ -46,11 +50,11 @@ class Invitewidget extends StatelessWidget {
 
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text(
-                  sublabel,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
-                ),
+                // Text(
+                //   sublabel,
+                //   textAlign: TextAlign.center,
+                //   style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
+                // ),
               ],
             ),
           ),
@@ -69,30 +73,14 @@ class InviteRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Invitewidget(
-          color: Colors.white,
-          icon: Icons.help,
-          label: 'How to',
-          sublabel: 'Refer',
-        ),
+        Invitewidget(color: Colors.white, icon: Icons.help, label: s.helpLink),
         Invitewidget(
           color: Colors.white,
           icon: Icons.call,
-          label: 'Invite via',
-          sublabel: 'Whatsapp',
+          label: s.whatsappLink,
         ),
-        Invitewidget(
-          color: Colors.white,
-          icon: Icons.qr_code,
-          label: 'Invite via',
-          sublabel: 'referral QR',
-        ),
-        Invitewidget(
-          color: Colors.white,
-          icon: Icons.copy,
-          label: 'Referral',
-          sublabel: 'Code',
-        ),
+        Invitewidget(color: Colors.white, icon: Icons.qr_code, label: s.qrLink),
+        Invitewidget(color: Colors.white, icon: Icons.copy, label: s.copyLink),
       ],
     );
   }

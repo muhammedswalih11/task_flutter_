@@ -44,7 +44,7 @@ class BillInfo extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.002),
+          SizedBox(height: SizeConfig.screenHeight * 0.0011),
           Text(
             bill.dueDate,
             style: TextStyle(

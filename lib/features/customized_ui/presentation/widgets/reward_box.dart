@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/star_widget.dart';
@@ -19,6 +21,7 @@ class RewardBox extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final s = DefaultStrings.instance;
     final isWhiteBox = type == RewardBoxType.white;
     return Container(
       width: SizeConfig.screenWidth * 0.5,
@@ -94,7 +97,7 @@ class RewardBox extends StatelessWidget {
                     ),
                     onPressed: onTap,
                     child: Text(
-                      'Collect now',
+                      s.rewardCollectText,
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: SizeConfig.screenWidth * 0.032,

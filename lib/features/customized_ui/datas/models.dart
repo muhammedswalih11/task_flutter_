@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
+
+final s = DefaultStrings.instance;
 
 class BillCardModel {
   final String imageUrl;
@@ -29,16 +33,11 @@ class RewardBoxModel {
 enum RewardBoxType { gradient, white }
 
 final List<RewardBoxModel> rewardBoxes = [
-  RewardBoxModel(type: RewardBoxType.gradient, title: 'New Reward\nUnlocked'),
+  RewardBoxModel(type: RewardBoxType.gradient, title: s.rewardBoxtext1),
 
   RewardBoxModel(
     type: RewardBoxType.white,
-    title: '2 more transaction away\nfrom unlocking this\nreward',
-    progressPercentage: 0.7,
-  ),
-  RewardBoxModel(
-    type: RewardBoxType.white,
-    title: '2 transaction away\nfrom unlocking this\nreward',
+    title: s.rewardBoxtext2,
     progressPercentage: 0.7,
   ),
 ];
