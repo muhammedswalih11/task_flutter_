@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/features/refer/data/models/contactmodel.dart';
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
 import 'package:flutter_tasks_/features/refer/presentation/widgets/invitewidget.dart';
 import 'package:flutter_tasks_/features/refer/presentation/widgets/refer_headers.dart';
@@ -15,13 +16,15 @@ class Referpage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final code = ref.watch(referralCodeprovider);
-    final contacts = ref.watch(contactsProvider);
+    // final contacts = ref.watch(contactsProvider);
     // final selected = ref.watch(selectedButtonProvider);
+    final contactsAsync = ref.watch(contactsProvider);
     SizeConfig.init(context);
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 227, 232, 243),
       body: SafeArea(
+        bottom: false,
         child: Column(
           children: [
             Padding(
@@ -44,7 +47,7 @@ class Referpage extends ConsumerWidget {
             SizedBox(height: SizeConfig.screenHeight * 0.02),
             Expanded(
               child: Container(
-                height: double.infinity,
+                // height: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -58,12 +61,19 @@ class Referpage extends ConsumerWidget {
                     Toggleswitch(),
                     SizedBox(height: SizeConfig.screenHeight * 0.015),
                     Expanded(
-                      child: ListView.separated(
-                        itemCount: contacts.length,
-                        itemBuilder: (context, i) =>
-                            Referrallist(contact: contacts[i], id: i),
-                        separatorBuilder: (context, index) =>
-                            const Divider(thickness: 1, color: Colors.grey),
+                      child: contactsAsync.when(
+                        loading: () =>
+                            const Center(child: CircularProgressIndicator()),
+                        error: (error, _) =>
+                            Center(child: Text('Error: $error')),
+
+                        data: (Contacts) => ListView.separated(
+                          itemCount: Contacts.length,
+                          itemBuilder: (context, i) =>
+                              Referrallist(contact: Contacts[i], id: i),
+                          separatorBuilder: (context, index) =>
+                              const Divider(thickness: 1, color: Colors.grey),
+                        ),
                       ),
                     ),
                   ],

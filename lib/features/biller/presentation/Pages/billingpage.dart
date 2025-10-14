@@ -16,8 +16,10 @@ class BillsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final activeBills = ref.watch(filteredActiveBillProvider);
-    final paidBills = ref.watch(filteredPaidBillsProvider);
+    final activeBillAsync = ref.watch(filteredActiveBillProvider);
+
+    final paidBillAsync = ref.watch(filteredPaidBillsProvider);
+
     final selectedToggle = ref.watch(toggleProvider);
     final s = DefaultStrings.instance;
     SizeConfig.init(context);
@@ -66,15 +68,31 @@ class BillsScreen extends ConsumerWidget {
                 child: Toggles(),
               ),
             ),
-            BillSection(
-              title: s.activeBillTitle,
-              bills: activeBills,
-              isPaidSection: false,
+            activeBillAsync.when(
+              data: (bills) => BillSection(
+                title: s.activeBillTitle,
+                bills: bills,
+                isPaidSection: false,
+              ),
+              loading: () => const SliverToBoxAdapter(
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              error: (e, _) => SliverToBoxAdapter(
+                child: Center(child: Text("Error loading active bills")),
+              ),
             ),
-            BillSection(
-              title: s.paidBillTitle,
-              bills: paidBills,
-              isPaidSection: true,
+            paidBillAsync.when(
+              data: (bills) => BillSection(
+                title: s.paidBillTitle,
+                bills: bills,
+                isPaidSection: true,
+              ),
+              loading: () => const SliverToBoxAdapter(
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              error: (e, _) => SliverToBoxAdapter(
+                child: Center(child: Text("Error loading active bills")),
+              ),
             ),
 
             SliverToBoxAdapter(child: RechargeAndBalancesSection()),

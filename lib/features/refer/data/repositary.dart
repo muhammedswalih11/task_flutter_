@@ -5,5 +5,6 @@ class ReferRepository {
   final service = ReferService();
 
   String fetchReferralCode() => service.getReferralCode();
-  List<Contact> fetchContacts() => service.getContacts();
+  // List<Contact> fetchContacts() => service.getContacts();
+  Future<List<Contact>> fetchContacts() => service.fetchContacts();
 }

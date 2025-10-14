@@ -29,6 +29,10 @@ class BillActionButton extends StatelessWidget {
             : OutlinedButton(
                 onPressed: onPay,
                 style: OutlinedButton.styleFrom(
+                  minimumSize: Size(
+                    SizeConfig.screenWidth * 0.14,
+                    SizeConfig.screenHeight * 0.03,
+                  ),
                   padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.screenWidth * 0.03,
                     vertical: SizeConfig.screenHeight * 0.005,

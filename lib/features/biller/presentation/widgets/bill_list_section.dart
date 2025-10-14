@@ -26,7 +26,7 @@ class BillList extends StatelessWidget {
         );
       },
       child: Container(
-        height: SizeConfig.screenHeight * 0.070,
+        height: SizeConfig.screenHeight * 0.075,
         margin: EdgeInsets.symmetric(
           horizontal: SizeConfig.screenWidth * 0.020,
           vertical: SizeConfig.screenHeight * 0.008,

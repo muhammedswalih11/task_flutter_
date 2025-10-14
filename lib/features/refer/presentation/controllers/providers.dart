@@ -14,8 +14,9 @@ final referralCodeprovider = Provider<String>((ref) {
   return ref.read(repositoryProvider).fetchReferralCode();
 });
 
-final contactsProvider = Provider<List<Contact>>((ref) {
-  return ref.read(repositoryProvider).fetchContacts();
+final contactsProvider = FutureProvider<List<Contact>>((ref) async {
+  final repository = ReferRepository();
+  return await repository.fetchContacts();
 });
 
 final selectedButtonProvider = StateProvider<String>((ref) => s.referToggleA);

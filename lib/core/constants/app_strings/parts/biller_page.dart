@@ -53,7 +53,7 @@ extension billerPageString on DefaultStrings {
   String get paidBillTitle =>
       get(I18nKeys().paidBillTitle, fallback: 'Your Paid Bills');
   String get rechargeSectionTitle =>
-      get(I18nKeys().rechargeSectionTitle, fallback: 'Recharge and Balances');
+      get(I18nKeys().rechargeSectionTitle, fallback: 'Top Up and Balances');
   String get addRechargeText =>
       get(I18nKeys().addRechargeText, fallback: 'Add Recharge');
   String get rechargeTypeText =>

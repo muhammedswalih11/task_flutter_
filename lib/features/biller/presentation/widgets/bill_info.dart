@@ -23,8 +23,8 @@ class BillInfo extends StatelessWidget {
                 ),
                 child: Image.asset(
                   bill.imageAsset,
-                  width: SizeConfig.screenWidth * 0.06,
-                  height: SizeConfig.screenWidth * 0.06,
+                  width: SizeConfig.screenWidth * 0.045,
+                  height: SizeConfig.screenWidth * 0.045,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Icon(
@@ -44,7 +44,7 @@ class BillInfo extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.0011),
+          SizedBox(height: SizeConfig.screenHeight * 0.004),
           Text(
             bill.dueDate,
             style: TextStyle(
