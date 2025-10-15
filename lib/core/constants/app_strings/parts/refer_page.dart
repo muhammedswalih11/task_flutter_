@@ -11,7 +11,7 @@ extension ReferPageStrings on DefaultStrings {
       get(I18nKeys().shareandEarnText, fallback: 'Share and Earn');
   String get helpLink => get(I18nKeys().helpLink, fallback: 'How to\nrefer');
   String get whatsappLink =>
-      get(I18nKeys().whatsappLink, fallback: 'Invite via/Whatsapp');
+      get(I18nKeys().whatsappLink, fallback: 'Invite via\nWhatsapp');
   String get qrLink =>
       get(I18nKeys().qrLink, fallback: 'Invite via\nreferral QR');
   String get copyLink =>

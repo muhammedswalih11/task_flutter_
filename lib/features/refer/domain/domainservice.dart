@@ -4,45 +4,17 @@ import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart'
 import 'package:flutter_tasks_/core/utils/dio_client.dart';
 import 'package:flutter_tasks_/features/refer/data/models/contactmodel.dart';
 
-// class ReferService {
-//   final s = DefaultStrings.instance;
-
-//   String getReferralCode() => s.referCode;
-
-// Future<List<Contact>> fetchContacts() async {
-//   await Future.delayed(Duration(seconds: 2));
-
-//   final DummyContacts = [
-//     {'name': s.contact1, 'phone': s.contactNum},
-//     {'name': s.contact2, 'phone': s.contactNum},
-//     {'name': s.contact3, 'phone': s.contactNum},
-//     {'name': s.contact4, 'phone': s.contactNum},
-//     {'name': s.contact1, 'phone': s.contactNum},
-//     {'name': s.contact2, 'phone': s.contactNum},
-//     {'name': s.contact3, 'phone': s.contactNum},
-//     {'name': s.contact4, 'phone': s.contactNum},
-//   ];
-
-//   Future<List<Contact>> fetchContacts() async {
-//   await Future.delayed(Duration(seconds: 2)); // Simulate network delay
-//   return _fakeContactsJson.map((json) => Contact.fromJson(json)).toList();
-// }
-//     return DummyContacts.map((json) => Contact.fromJson(json)).toList();
-//   }
-// }
 class ReferService {
   final Dio _dio = DioClient.instance;
   final s = DefaultStrings.instance;
   String getReferralCode() => s.referCode;
 
-  bool useFakeData = true; // switch this to false when API ready
+  bool useFakeData = true;
 
   Future<List<Contact>> fetchContacts() async {
     if (useFakeData) {
-      // Return local dummy data
       return fetchFakeContacts();
     } else {
-      // Return real API data
       return fetchContactsFromApi();
     }
   }
