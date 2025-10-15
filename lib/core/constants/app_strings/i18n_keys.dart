@@ -46,6 +46,7 @@ class I18nKeys {
   String get addRechargeText => 'addRechargeText';
   // String get rechargeBillName => 'rechargeBillName';
   String get rechargeTypeText => 'rechargeTypeText';
+  String get rechargeTypeText2 => 'rechargeTypeText2';
   String get vodafoneRechargeAmount => 'vodafoneRechargeAmount';
   String get rechargeButtonText => 'rechargeButtonText';
   String get btMobileText => 'btMobileText';

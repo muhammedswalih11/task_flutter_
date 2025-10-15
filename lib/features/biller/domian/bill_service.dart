@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
+import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/dio_client.dart';
 import 'package:flutter_tasks_/features/biller/data/models.dart';
 
@@ -110,21 +111,23 @@ class BillService {
 }
 
 class RechargeService {
+  final s = DefaultStrings.instance;
+
   Future<List<RechargeCardModel>> fetchDummyRechargeCards() async {
     await Future.delayed(Duration(seconds: 1));
 
     final dummyJson = [
       {
         'imagePath': 'assets/images/vodafone.png',
-        'title': 'Vodafone',
-        'type': 'Mobile Recharge',
-        'amount': '₹249',
+        'title': s.billBrandName4,
+        'type': s.rechargeTypeText,
+        'amount': '23.00 QAR',
       },
       {
         'imagePath': 'assets/images/ooredoo.png',
-        'title': 'Ooredoo',
-        'type': 'DTH Recharge',
-        'amount': '₹499',
+        'title': s.billOoreedo,
+        'type': s.rechargeTypeText2,
+        'amount': '85.00 QAR',
       },
     ];
 

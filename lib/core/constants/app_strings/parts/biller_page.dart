@@ -30,13 +30,12 @@ extension billerPageString on DefaultStrings {
   String get billBrandName4 =>
       get(I18nKeys().billBrandName4, fallback: 'Vodafone');
   String get netflixDueAmount =>
-      get(I18nKeys().netflixDueAmount, fallback: '23.00 QAR');
+      get(I18nKeys().netflixDueAmount, fallback: '23.00');
   String get primeDueAmount =>
-      get(I18nKeys().primeDueAmount, fallback: '85.02 QAR');
-  String get gitDueAmount =>
-      get(I18nKeys().gitDueAmount, fallback: '73.00 QAR');
+      get(I18nKeys().primeDueAmount, fallback: '85.02');
+  String get gitDueAmount => get(I18nKeys().gitDueAmount, fallback: '73.00');
   String get vodafoneDueAmount =>
-      get(I18nKeys().vodafoneDueAmount, fallback: '45.00 QAR');
+      get(I18nKeys().vodafoneDueAmount, fallback: '45.00');
   String get billcardPayText =>
       get(I18nKeys().billcardPayText, fallback: 'Pay');
   String get netflixDueDateText =>
@@ -58,6 +57,8 @@ extension billerPageString on DefaultStrings {
       get(I18nKeys().addRechargeText, fallback: 'Add Recharge');
   String get rechargeTypeText =>
       get(I18nKeys().rechargeTypeText, fallback: 'Mobile recharge');
+  String get rechargeTypeText2 =>
+      get(I18nKeys().rechargeTypeText2, fallback: 'DTH recharge');
   String get vodafoneRechargeAmount =>
       get(I18nKeys().vodafoneRechargeAmount, fallback: '23.00 QAR');
 

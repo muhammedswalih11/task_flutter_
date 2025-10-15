@@ -4,7 +4,7 @@ import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/presentation/controllers/providers.dart';
-import 'package:flutter_tasks_/features/biller/presentation/widgets/amount_recharge.dart';
+import 'package:flutter_tasks_/features/biller/presentation/widgets/recharge_card.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/header.dart';
 
 class RechargeAndBalancesSection extends ConsumerWidget {
