@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
@@ -74,8 +75,29 @@ class BillsScreen extends ConsumerWidget {
                 bills: bills,
                 isPaidSection: false,
               ),
-              loading: () => const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()),
+              loading: () => SliverList.list(
+                children: List.generate(
+                  4,
+                  (index) => Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.screenWidth * 0.020,
+                      vertical: SizeConfig.screenHeight * 0.008,
+                    ),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: SizeConfig.screenHeight * 0.075,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            SizeConfig.screenWidth * 0.04,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               error: (e, _) => SliverToBoxAdapter(
                 child: Center(child: Text("Error loading active bills")),
@@ -87,8 +109,29 @@ class BillsScreen extends ConsumerWidget {
                 bills: bills,
                 isPaidSection: true,
               ),
-              loading: () => const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()),
+              loading: () => SliverList.list(
+                children: List.generate(
+                  4,
+                  (index) => Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.screenWidth * 0.020,
+                      vertical: SizeConfig.screenHeight * 0.008,
+                    ),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300]!,
+                      highlightColor: Colors.grey[100]!,
+                      child: Container(
+                        height: SizeConfig.screenHeight * 0.075,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            SizeConfig.screenWidth * 0.04,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               error: (e, _) => SliverToBoxAdapter(
                 child: Center(child: Text("Error loading active bills")),

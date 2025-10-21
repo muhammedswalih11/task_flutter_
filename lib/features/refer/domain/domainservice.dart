@@ -20,7 +20,7 @@ class ReferService {
   }
 
   Future<List<Contact>> fetchFakeContacts() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
 
     final fakeJson = [
       {'name': s.contact1, 'phone': s.contactNum},

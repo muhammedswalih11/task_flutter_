@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
@@ -62,11 +63,26 @@ class Referpage extends ConsumerWidget {
                     SizedBox(height: SizeConfig.screenHeight * 0.015),
                     Expanded(
                       child: contactsAsync.when(
-                        loading: () =>
-                            const Center(child: CircularProgressIndicator()),
+                        loading: () => Center(
+                          child: ListView.separated(
+                            itemCount: 6,
+                            itemBuilder: (context, index) => Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
+                                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            separatorBuilder: (context, index) => const Divider(thickness: 1, color: Colors.grey),
+                          ),
+                        ),
                         error: (error, _) =>
                             Center(child: Text('Error: $error')),
-
                         data: (Contacts) => ListView.separated(
                           itemCount: Contacts.length,
                           itemBuilder: (context, i) =>
