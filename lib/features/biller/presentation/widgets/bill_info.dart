@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 import 'package:flutter_tasks_/features/biller/data/models.dart';

@@ -1,78 +1,33 @@
-import 'dart:ui';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'models.freezed.dart';
+part 'models.g.dart';
+
+@JsonEnum(alwaysCreate: true)
 enum BillStatus { active, paid }
 
-BillStatus billStatusFromString(String status) {
-  switch (status.toLowerCase()) {
-    case 'paid':
-      return BillStatus.paid;
-    case 'active':
-    default:
-      return BillStatus.active;
-  }
+@freezed
+class Bill with _$Bill {
+  const factory Bill({
+    required String imageAsset,
+    required String name,
+    required double amount,
+    required BillStatus status,
+    required String dueDate,
+    DateTime? rawDueDate,
+  }) = _Bill;
+
+  factory Bill.fromJson(Map<String, dynamic> json) => _$BillFromJson(json);
 }
 
-class Bill {
-  final String imageAsset;
-  final String name;
-  final double amount;
-  final String dueDate;
-  final DateTime? rawDueDate;
-  final BillStatus status;
+@freezed
+class RechargeCardModel with _$RechargeCardModel {
+  const factory RechargeCardModel({
+    required String imagePath,
+    required String title,
+    required String type,
+    required String amount,
+  }) = _RechargeCardModel;
 
-  Bill({
-    required this.imageAsset,
-    required this.name,
-    required this.amount,
-    required this.status,
-    required this.dueDate,
-    this.rawDueDate,
-  });
-
-  factory Bill.fromJson(Map<String, dynamic> json) {
-    return Bill(
-      imageAsset: json['imageAsset'],
-      name: json['name'],
-      amount: (json['amount'] as num).toDouble(),
-      dueDate: json['dueDate'],
-      rawDueDate: json['rawDueDate'] != null
-          ? DateTime.parse(json['rawDueDate'])
-          : null,
-      status: billStatusFromString(json['status']),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'imageAsset': imageAsset,
-      'name': name,
-      'amount': amount,
-      'dueDate': dueDate,
-      'rawDueDate': rawDueDate?.toIso8601String(),
-      'status': status.name,
-    };
-  }
-}
-
-class RechargeCardModel {
-  final String imagePath;
-  final String title;
-  final String type;
-  final String amount;
-
-  RechargeCardModel({
-    required this.imagePath,
-    required this.title,
-    required this.type,
-    required this.amount,
-  });
-
-  factory RechargeCardModel.fromJson(Map<String, dynamic> json) {
-    return RechargeCardModel(
-      imagePath: json['imagePath'],
-      title: json['title'],
-      type: json['type'],
-      amount: json['amount'],
-    );
-  }
+  factory RechargeCardModel.fromJson(Map<String, dynamic> json) => _$RechargeCardModelFromJson(json);
 }

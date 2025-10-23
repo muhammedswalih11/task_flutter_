@@ -1,16 +1,18 @@
-class Contact {
-  final String name;
-  final String phone;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Contact({required this.name, required this.phone});
+part 'contactmodel.freezed.dart';
+part 'contactmodel.g.dart';
 
+@freezed
+class Contact with _$Contact {
+  const factory Contact({
+    required String name,
+    required String phone,
+  }) = _Contact;
+
+  factory Contact.fromJson(Map<String, dynamic> json) => _$ContactFromJson(json);
+}
+
+extension ContactX on Contact {
   String get initial => name.isNotEmpty ? name[0].toUpperCase() : '?';
-
-  factory Contact.fromJson(Map<String, dynamic> json) {
-    return Contact(name: json['name'], phone: json['phone']);
-  }
-
-  Map<String, dynamic> toJson() {
-    return {'name': name, 'phone': phone};
-  }
 }
