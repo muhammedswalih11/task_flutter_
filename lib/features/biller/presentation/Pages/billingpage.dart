@@ -137,8 +137,11 @@ class BillsScreen extends ConsumerWidget {
                 child: Center(child: Text("Error loading active bills")),
               ),
             ),
-
+            SliverToBoxAdapter(
+              child: Divider(thickness: 1, color: Colors.grey[400]),
+            ),
             SliverToBoxAdapter(child: RechargeAndBalancesSection()),
+
             SliverToBoxAdapter(
               child: BottomCustomWidget(
                 iconpath: [
