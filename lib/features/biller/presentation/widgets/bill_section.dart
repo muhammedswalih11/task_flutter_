@@ -37,6 +37,7 @@ class BillSection extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: SizeConfig.screenWidth * 0.045,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               TextButton(

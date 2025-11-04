@@ -23,7 +23,8 @@ class Referpage extends ConsumerWidget {
     SizeConfig.init(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 227, 232, 243),
+      // backgroundColor: const Color.fromARGB(255, 227, 232, 243),
+      backgroundColor: Theme.of(context).colorScheme.onSurfaceVariant,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -50,7 +51,7 @@ class Referpage extends ConsumerWidget {
               child: Container(
                 // height: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.primaryFixedDim,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(SizeConfig.screenWidth * 0.075),
                     topRight: Radius.circular(SizeConfig.screenWidth * 0.075),
@@ -70,7 +71,9 @@ class Referpage extends ConsumerWidget {
                               baseColor: Colors.grey[300]!,
                               highlightColor: Colors.grey[100]!,
                               child: Container(
-                                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                                margin: const EdgeInsets.symmetric(
+                                  vertical: 8.0,
+                                ),
                                 height: 60,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
@@ -78,7 +81,8 @@ class Referpage extends ConsumerWidget {
                                 ),
                               ),
                             ),
-                            separatorBuilder: (context, index) => const Divider(thickness: 1, color: Colors.grey),
+                            separatorBuilder: (context, index) =>
+                                const Divider(thickness: 1, color: Colors.grey),
                           ),
                         ),
                         error: (error, _) =>

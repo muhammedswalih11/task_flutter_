@@ -31,11 +31,15 @@ class SpendRow extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: SizeConfig.screenWidth * 0.038,
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
             Text(
               category,
-              style: TextStyle(fontSize: SizeConfig.screenWidth * 0.034),
+              style: TextStyle(
+                fontSize: SizeConfig.screenWidth * 0.034,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
             ),
           ],
         ),
@@ -45,6 +49,7 @@ class SpendRow extends StatelessWidget {
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.038,
             fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ],

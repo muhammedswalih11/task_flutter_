@@ -16,9 +16,13 @@ class BillSearchBar extends ConsumerWidget {
           ref.read(CurrentSearchProvider.notifier).state = query,
       decoration: InputDecoration(
         hintText: s.searchBarText,
-        prefixIcon: Icon(Icons.search),
+        hintStyle: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+        prefixIcon: Icon(
+          Icons.search,
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Theme.of(context).colorScheme.primaryFixedDim,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.075),
           borderSide: BorderSide(color: Colors.grey),

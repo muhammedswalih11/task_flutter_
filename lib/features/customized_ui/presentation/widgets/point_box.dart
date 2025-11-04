@@ -36,11 +36,15 @@ class pointBox extends StatelessWidget {
         children: [
           Text(
             '150',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: fontSize),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: fontSize,
+              color: Colors.black,
+            ),
           ),
           Row(
             children: [
-              Icon(Icons.add, size: iconSize),
+              Icon(Icons.add, size: iconSize, color: Colors.black),
               SizedBox(width: SizeConfig.screenWidth * 0.01),
               Image.asset(
                 'assets/images/coins.png',

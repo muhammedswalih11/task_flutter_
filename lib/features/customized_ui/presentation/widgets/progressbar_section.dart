@@ -19,7 +19,8 @@ class ProgressBarSection extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blueGrey.shade50,
+          // color: Colors.blueGrey.shade50,
+          color: Theme.of(context).colorScheme.primary,
 
           borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.035),
           border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
@@ -34,7 +35,8 @@ class ProgressBarSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                   SizeConfig.screenWidth * 0.045,
                 ),
-                color: Colors.white,
+                // color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               padding: EdgeInsets.all(SizeConfig.screenWidth * 0.035),
               child: Column(
@@ -49,6 +51,7 @@ class ProgressBarSection extends StatelessWidget {
                           style: TextStyle(
                             fontSize: SizeConfig.screenWidth * 0.04,
                             fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                       ),

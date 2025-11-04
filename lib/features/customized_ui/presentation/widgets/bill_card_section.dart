@@ -6,14 +6,14 @@ class BillCards extends StatelessWidget {
   final String title;
   final String amount;
   final IconData trialicon;
-  final Color headerColor;
+  // final Color headerColor;
 
   const BillCards({
     super.key,
     required this.imageUrl,
     required this.title,
     required this.amount,
-    this.headerColor = const Color(0xFFE8F2FF),
+    // this.headerColor =colorScheme.outline,
     required this.trialicon,
   });
 
@@ -23,8 +23,14 @@ class BillCards extends StatelessWidget {
       child: Container(
         width: SizeConfig.screenWidth * 0.43,
         decoration: BoxDecoration(
-          color: Colors.white,
+          // color: Colors.white,
+          color: Theme.of(context).colorScheme.primaryFixedDim,
           borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.035),
+          border: Border.all(
+            // color: Colors.blueGrey.shade200,
+            color: Theme.of(context).colorScheme.outline,
+            width: 0.6,
+          ),
         ),
 
         child: Column(
@@ -36,7 +42,7 @@ class BillCards extends StatelessWidget {
                 vertical: SizeConfig.screenWidth * 0.02,
               ),
               decoration: BoxDecoration(
-                color: headerColor,
+                color: Theme.of(context).colorScheme.onSecondaryContainer,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(SizeConfig.screenWidth * 0.03),
                   topRight: Radius.circular(SizeConfig.screenWidth * 0.03),
@@ -54,6 +60,7 @@ class BillCards extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: SizeConfig.screenWidth * 0.035,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                 ],
@@ -72,6 +79,7 @@ class BillCards extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: SizeConfig.screenWidth * 0.035,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                   Spacer(),
@@ -80,6 +88,7 @@ class BillCards extends StatelessWidget {
                     child: Icon(
                       trialicon,
                       size: SizeConfig.screenWidth * 0.055,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                 ],

@@ -11,8 +11,14 @@ class PointsEarnCard extends StatelessWidget {
     final s = DefaultStrings.instance;
     return Container(
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 246, 251, 252),
+        // color: const Color.fromARGB(255, 246, 251, 252),
+        // color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.05),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outlineVariant,
+          width: 0.6,
+        ),
       ),
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
       child: Row(
@@ -30,6 +36,7 @@ class PointsEarnCard extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: SizeConfig.screenWidth * 0.036,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
           ),
 

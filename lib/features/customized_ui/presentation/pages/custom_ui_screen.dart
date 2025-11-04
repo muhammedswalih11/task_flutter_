@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/core/utils/theme.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/controllers/providers.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/active_bill_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spend_section.dart';
@@ -15,7 +17,9 @@ class CustomizedUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-
+    final appGradient = Theme.of(
+      context,
+    ).extension<AppGradients>()!.appBarGradient;
     final List<Map<String, dynamic>> sectionList = [
       {'type': 'header', 'title': 'Pinned'},
       {
@@ -61,26 +65,26 @@ class CustomizedUI extends StatelessWidget {
         preferredSize: Size.fromHeight(SizeConfig.screenHeight * 0.12),
         child: AppBar(
           backgroundColor: Colors.transparent,
-          leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+          leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_back,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+          ),
           title: Text(
             'Customize Widgets',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: const Color.fromARGB(255, 8, 73, 126),
+              color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 184, 220, 236), Colors.white],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
+            decoration: BoxDecoration(gradient: appGradient),
           ),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Container(
           width: SizeConfig.screenWidth,
@@ -89,7 +93,9 @@ class CustomizedUI extends StatelessWidget {
               topLeft: Radius.circular(SizeConfig.screenWidth * 0.040),
               topRight: Radius.circular(SizeConfig.screenWidth * 0.040),
             ),
-            border: Border(top: BorderSide(color: Colors.blue.shade50)),
+            border: Border(
+              top: BorderSide(color: Theme.of(context).colorScheme.outline),
+            ),
           ),
           child: ListView.builder(
             itemCount: sectionList.length,
@@ -100,7 +106,7 @@ class CustomizedUI extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.only(
                       top: SizeConfig.screenHeight * 0.036,
-                      // bottom: SizeConfig.screenHeight * 0.015,
+
                       left: SizeConfig.screenWidth * 0.04,
                     ),
                     child: Text(
@@ -108,6 +114,7 @@ class CustomizedUI extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: SizeConfig.screenWidth * 0.048,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   );

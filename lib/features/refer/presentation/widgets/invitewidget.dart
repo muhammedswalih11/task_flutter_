@@ -28,7 +28,7 @@ class Invitewidget extends StatelessWidget {
             width: SizeConfig.screenWidth * 0.12,
             height: SizeConfig.screenHeight * 0.06,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.primaryFixedDim,
               borderRadius: BorderRadius.circular(
                 SizeConfig.screenWidth * 0.03,
               ),
@@ -46,7 +46,10 @@ class Invitewidget extends StatelessWidget {
                 Text(
                   label,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
+                  style: TextStyle(
+                    fontSize: SizeConfig.screenWidth * 0.03,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
 
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -75,7 +78,8 @@ class InviteRow extends StatelessWidget {
       children: [
         Invitewidget(color: Colors.white, icon: Icons.help, label: s.helpLink),
         Invitewidget(
-          color: Colors.white,
+          // color: Colors.white,
+          color: Theme.of(context).colorScheme.primaryFixedDim,
           icon: Icons.call,
           label: s.whatsappLink,
         ),

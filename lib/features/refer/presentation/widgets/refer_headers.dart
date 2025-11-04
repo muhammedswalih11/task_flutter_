@@ -15,12 +15,17 @@ class ReferHeaders1 extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, size: SizeConfig.screenWidth * 0.06),
+          icon: Icon(
+            Icons.arrow_back,
+            size: SizeConfig.screenWidth * 0.06,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         Text(
           s.referpageTitle,
           style: TextStyle(
-            color: const Color.fromARGB(255, 21, 77, 122),
+            // color: const Color.fromARGB(255, 21, 77, 122),
+            color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.045,
           ),

@@ -24,6 +24,7 @@ class RewardsLaregSection extends StatelessWidget {
             width: double.infinity,
             child: Container(
               width: double.infinity,
+
               child: Stack(
                 children: [
                   Padding(
@@ -54,15 +55,32 @@ class RewardsLaregSection extends StatelessWidget {
                                 SizeConfig.screenWidth * 0.04,
                               ),
                             ),
-                            padding: EdgeInsets.all(SizeConfig.screenWidth * 0.038),
+                            padding: EdgeInsets.all(
+                              SizeConfig.screenWidth * 0.038,
+                            ),
                             child: Column(
                               children: [
-                                SizedBox(height: SizeConfig.screenHeight * 0.02),
-                                Container(height: SizeConfig.screenHeight * 0.02, color: Colors.white),
-                                SizedBox(height: SizeConfig.screenHeight * 0.02),
-                                Container(height: SizeConfig.screenHeight * 0.02, color: Colors.white),
-                                SizedBox(height: SizeConfig.screenHeight * 0.02),
-                                Container(height: SizeConfig.screenHeight * 0.02, color: Colors.white),
+                                SizedBox(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                ),
+                                Container(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                ),
+                                Container(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                ),
+                                Container(
+                                  height: SizeConfig.screenHeight * 0.02,
+                                  color: Colors.white,
+                                ),
                               ],
                             ),
                           ),
@@ -95,7 +113,9 @@ class RewardsLaregSection extends StatelessWidget {
                                   height: SizeConfig.screenHeight * 0.2,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.02),
+                                    borderRadius: BorderRadius.circular(
+                                      SizeConfig.screenWidth * 0.02,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -128,12 +148,14 @@ class RewardsLaregSection extends StatelessWidget {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey.shade50,
+                      // color: Colors.blueGrey.shade50,
+                      color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(
                         SizeConfig.screenWidth * 0.04,
                       ),
                       border: Border.all(
-                        color: Colors.blueGrey.shade200,
+                        // color: Colors.blueGrey.shade200,
+                        color: Theme.of(context).colorScheme.outline,
                         width: 0.6,
                       ),
                     ),
@@ -145,7 +167,7 @@ class RewardsLaregSection extends StatelessWidget {
                         Container(
                           height: SizeConfig.screenHeight * 0.40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.secondary,
                             borderRadius: BorderRadius.circular(
                               SizeConfig.screenWidth * 0.04,
                             ),
@@ -219,7 +241,3 @@ class RewardsLaregSection extends StatelessWidget {
     );
   }
 }
-
-
-
-

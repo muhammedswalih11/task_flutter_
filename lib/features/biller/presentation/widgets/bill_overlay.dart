@@ -28,7 +28,8 @@ void showBillOverlay(
             margin: EdgeInsets.only(top: SizeConfig.screenHeight * 0.04),
             padding: EdgeInsets.all(SizeConfig.screenWidth * 0.04),
             decoration: BoxDecoration(
-              color: Colors.white,
+              // color: Colors.white,
+              color: Theme.of(context).colorScheme.primaryFixedDim,
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(SizeConfig.screenWidth * 0.05),
               ),
@@ -45,6 +46,7 @@ void showBillOverlay(
                       style: TextStyle(
                         fontSize: SizeConfig.screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                     Row(
@@ -54,6 +56,7 @@ void showBillOverlay(
                           style: TextStyle(
                             fontSize: SizeConfig.screenWidth * 0.05,
                             fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                         SizedBox(width: SizeConfig.screenWidth * 0.02),
@@ -72,7 +75,8 @@ void showBillOverlay(
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      // color: Colors.white,
+                      color: Theme.of(context).colorScheme.primaryFixedDim,
                       border: Border.all(
                         color: const Color.fromARGB(255, 213, 238, 250),
                         width: 1,
@@ -84,11 +88,15 @@ void showBillOverlay(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        infoRow(s.acnameText, s.accountName),
+                        infoRow(s.acnameText, s.accountName, context),
                         LightDivider(),
-                        infoRow(s.amountDueText, '${amount}${s.currencyQAR}'),
+                        infoRow(
+                          s.amountDueText,
+                          '${amount}${s.currencyQAR}',
+                          context,
+                        ),
                         LightDivider(),
-                        infoRow(s.dueDateText, formattedDate),
+                        infoRow(s.dueDateText, formattedDate, context),
                       ],
                     ),
                   ),

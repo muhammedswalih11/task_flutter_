@@ -35,7 +35,8 @@ class CardSections extends ConsumerWidget {
                 child: Container(
                   height: SizeConfig.screenHeight * 0.066,
                   child: Card(
-                    color: Colors.white,
+                    // color: Colors.white,
+                    color: Theme.of(context).colorScheme.primaryFixedDim,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                         SizeConfig.screenWidth * 0.04,
@@ -72,6 +73,7 @@ class CardSections extends ConsumerWidget {
                             title,
                             style: TextStyle(
                               fontSize: SizeConfig.screenWidth * 0.042,
+                              color: Theme.of(context).colorScheme.onPrimary,
                             ),
                           ),
                           Spacer(),
@@ -85,6 +87,7 @@ class CardSections extends ConsumerWidget {
                                   ? Icons.keyboard_arrow_up
                                   : Icons.keyboard_arrow_down,
                               size: SizeConfig.screenWidth * 0.06,
+                              color: Theme.of(context).colorScheme.onPrimary,
                             ),
                           ),
                         ],

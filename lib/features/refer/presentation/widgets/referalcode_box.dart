@@ -17,7 +17,8 @@ class ReferalcodeBox extends ConsumerWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
+        color: Theme.of(context).colorScheme.primaryFixedDim,
         borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
       ),
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.04),
@@ -27,7 +28,7 @@ class ReferalcodeBox extends ConsumerWidget {
           Text(
             s.referBoxHeader,
             style: TextStyle(
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.onPrimary,
               fontSize: SizeConfig.screenWidth * 0.035,
               fontWeight: FontWeight.bold,
             ),
@@ -38,10 +39,15 @@ class ReferalcodeBox extends ConsumerWidget {
               Expanded(
                 child: TextField(
                   controller: TextEditingController(text: code),
+
                   readOnly: true,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: const Color.fromARGB(255, 227, 236, 250),
+
+                    fillColor: Theme.of(context).colorScheme.tertiaryContainer,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(
                         SizeConfig.screenWidth * 0.02,

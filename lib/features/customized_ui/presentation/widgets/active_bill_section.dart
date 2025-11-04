@@ -33,12 +33,14 @@ class ActiveBillerSection2 extends StatelessWidget {
                     child: Container(
                       height: SizeConfig.screenHeight * 0.18,
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey.shade50,
+                        // color: Colors.blueGrey.shade50,
+                        color: Theme.of(context).colorScheme.primary,
                         borderRadius: BorderRadius.circular(
                           SizeConfig.screenWidth * 0.035,
                         ),
                         border: Border.all(
-                          color: Colors.blueGrey.shade200,
+                          // color: Colors.blueGrey.shade200,
+                          color: Theme.of(context).colorScheme.outline,
                           width: 0.6,
                         ),
                       ),
@@ -102,13 +104,15 @@ class ActiveBillerSection2 extends StatelessWidget {
                     height: SizeConfig.screenHeight * 0.18,
 
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey.shade50,
+                      // color: Colors.blueGrey.shade50,
+                      color: Theme.of(context).colorScheme.primary,
 
                       borderRadius: BorderRadius.circular(
                         SizeConfig.screenWidth * 0.035,
                       ),
                       border: Border.all(
-                        color: Colors.blueGrey.shade200,
+                        // color: Colors.blueGrey.shade200,
+                        color: Theme.of(context).colorScheme.outline,
                         width: 0.6,
                       ),
                     ),
@@ -150,6 +154,3 @@ class ActiveBillerSection2 extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
-Widget infoRow(String label, String value) {
+Widget infoRow(String label, String value, BuildContext context) {
   return Padding(
     padding: EdgeInsets.symmetric(
       horizontal: SizeConfig.screenWidth * 0.03,
@@ -15,6 +15,7 @@ Widget infoRow(String label, String value) {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.04,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
         Text(
@@ -22,6 +23,7 @@ Widget infoRow(String label, String value) {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.04,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ],

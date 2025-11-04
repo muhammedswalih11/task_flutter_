@@ -13,7 +13,10 @@ class Header1 extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         Text(
@@ -40,7 +43,8 @@ class Header2 extends StatelessWidget {
           s.headerA,
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.05,
-            color: Colors.black,
+            // color: Colors.black,
+            color: Theme.of(context).colorScheme.onPrimary,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -65,7 +69,10 @@ class SubHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       s.subHeader,
-      style: TextStyle(fontSize: SizeConfig.screenWidth * 0.035),
+      style: TextStyle(
+        fontSize: SizeConfig.screenWidth * 0.035,
+        color: Theme.of(context).colorScheme.onPrimary,
+      ),
     );
   }
 }

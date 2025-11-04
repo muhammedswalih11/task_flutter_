@@ -17,10 +17,14 @@ class CardSpendSection extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blueGrey.shade50,
+          // color: Colors.blueGrey.shade50,
+          color: Theme.of(context).colorScheme.primary,
 
           borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.045),
-          border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
+          border: Border.all(
+            color: Theme.of(context).colorScheme.outline,
+            width: 0.6,
+          ),
         ),
         padding: EdgeInsets.only(
           top: SizeConfig.screenHeight * 0.04,
@@ -37,7 +41,8 @@ class CardSpendSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                   SizeConfig.screenWidth * 0.03,
                 ),
-                color: Colors.white,
+                // color: Colors.white,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: Padding(
                 padding: EdgeInsets.all(SizeConfig.screenWidth * 0.06),
@@ -54,7 +59,8 @@ class CardSpendSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(
                     SizeConfig.screenWidth * 0.05,
                   ),
-                  color: Colors.white,
+
+                  color: Theme.of(context).colorScheme.secondary,
                   border: Border.all(
                     color: const Color.fromARGB(137, 61, 59, 59),
                   ),
@@ -65,6 +71,7 @@ class CardSpendSection extends StatelessWidget {
                   style: TextStyle(
                     fontSize: SizeConfig.screenWidth * 0.028,
                     fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               ),

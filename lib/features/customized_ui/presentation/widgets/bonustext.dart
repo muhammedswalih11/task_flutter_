@@ -17,6 +17,7 @@ class BonusText extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.046,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
         Text(
@@ -24,6 +25,7 @@ class BonusText extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: SizeConfig.screenWidth * 0.032,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ],

@@ -26,7 +26,8 @@ class BillsScreen extends ConsumerWidget {
     SizeConfig.init(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 246, 242, 242),
+      // backgroundColor: const Color.fromARGB(255, 246, 242, 242),
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: SafeArea(
         top: false,
         child: CustomScrollView(
@@ -141,6 +142,9 @@ class BillsScreen extends ConsumerWidget {
               child: Divider(thickness: 1, color: Colors.grey[400]),
             ),
             SliverToBoxAdapter(child: RechargeAndBalancesSection()),
+            SliverToBoxAdapter(
+              child: SizedBox(height: SizeConfig.screenHeight * 0.02),
+            ),
 
             SliverToBoxAdapter(
               child: BottomCustomWidget(

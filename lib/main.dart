@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_tasks_/core/utils/theme.dart';
 import 'package:flutter_tasks_/features/biller/presentation/Pages/billingpage.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/pages/custom_ui_screen.dart';
 import 'package:flutter_tasks_/features/refer/presentation/pages/referpage.dart';
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: lightMode,
+      darkTheme: darkMode,
+      themeMode: ThemeMode.system,
       home: BillsScreen(),
     );
   }

@@ -19,6 +19,7 @@ class BillAmount extends StatelessWidget {
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: SizeConfig.screenWidth * 0.04,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
     );

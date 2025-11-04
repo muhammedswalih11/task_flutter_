@@ -14,15 +14,16 @@ class RechargeCard extends StatelessWidget {
     return SizedBox(
       child: Padding(
         padding: EdgeInsets.only(
-          left: SizeConfig.screenWidth * 0.02,
-          right: SizeConfig.screenWidth * 0.02,
+          left: SizeConfig.screenWidth * 0.05,
+          // right: SizeConfig.screenWidth * 0.0,
         ),
         child: Container(
           width: SizeConfig.screenWidth * 0.8,
           margin: EdgeInsets.only(right: SizeConfig.screenWidth * 0.05),
           padding: EdgeInsets.all(SizeConfig.screenWidth * 0.028),
           decoration: BoxDecoration(
-            color: Colors.white,
+            // color: Colors.white,
+            color: Theme.of(context).colorScheme.primaryFixedDim,
             borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.04),
           ),
           child: Column(
@@ -43,13 +44,17 @@ class RechargeCard extends StatelessWidget {
                         model.title,
                         style: TextStyle(
                           fontSize: SizeConfig.screenWidth * 0.035,
+                          color: Theme.of(context).colorScheme.onPrimary,
                         ),
                       ),
                     ],
                   ),
                   Text(
                     model.type,
-                    style: TextStyle(fontSize: SizeConfig.screenWidth * 0.035),
+                    style: TextStyle(
+                      fontSize: SizeConfig.screenWidth * 0.035,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
                   ),
                 ],
               ),
@@ -62,6 +67,7 @@ class RechargeCard extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: SizeConfig.screenWidth * 0.045,
+                      color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                   ElevatedButton(

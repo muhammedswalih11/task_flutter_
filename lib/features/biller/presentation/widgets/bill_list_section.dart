@@ -36,7 +36,8 @@ class BillList extends StatelessWidget {
           vertical: SizeConfig.screenHeight * 0.010,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          // color: Colors.white,
+          color: Theme.of(context).colorScheme.primaryFixedDim,
           borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.04),
         ),
         child: Row(

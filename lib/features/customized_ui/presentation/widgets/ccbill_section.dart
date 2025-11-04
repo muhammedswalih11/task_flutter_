@@ -28,8 +28,13 @@ class CcBillSection extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.blueGrey.shade50,
-                  borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
-                  border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
+                  borderRadius: BorderRadius.circular(
+                    SizeConfig.screenWidth * 0.03,
+                  ),
+                  border: Border.all(
+                    color: Colors.blueGrey.shade200,
+                    width: 0.6,
+                  ),
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
@@ -40,14 +45,28 @@ class CcBillSection extends StatelessWidget {
                       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+                        borderRadius: BorderRadius.circular(
+                          SizeConfig.screenWidth * 0.03,
+                        ),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(width: SizeConfig.screenWidth * 0.25, height: SizeConfig.screenHeight * 0.03, color: Colors.white),
-                          Container(width: SizeConfig.screenWidth * 0.25, height: SizeConfig.screenHeight * 0.05, color: Colors.white),
-                          Container(width: SizeConfig.screenWidth * 0.15, height: SizeConfig.screenHeight * 0.03, color: Colors.white),
+                          Container(
+                            width: SizeConfig.screenWidth * 0.25,
+                            height: SizeConfig.screenHeight * 0.03,
+                            color: Colors.white,
+                          ),
+                          Container(
+                            width: SizeConfig.screenWidth * 0.25,
+                            height: SizeConfig.screenHeight * 0.05,
+                            color: Colors.white,
+                          ),
+                          Container(
+                            width: SizeConfig.screenWidth * 0.15,
+                            height: SizeConfig.screenHeight * 0.03,
+                            color: Colors.white,
+                          ),
                         ],
                       ),
                     ),
@@ -74,7 +93,8 @@ class CcBillSection extends StatelessWidget {
               final bill = ccBills[index];
               return Container(
                 decoration: BoxDecoration(
-                  color: Colors.blueGrey.shade50,
+                  // color: Colors.blueGrey.shade50,
+                  color: Theme.of(context).colorScheme.primary,
 
                   borderRadius: BorderRadius.circular(
                     SizeConfig.screenWidth * 0.03,
@@ -89,7 +109,8 @@ class CcBillSection extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      // color: Colors.white,
+                      color: Theme.of(context).colorScheme.secondary,
                       borderRadius: BorderRadius.circular(
                         SizeConfig.screenWidth * 0.03,
                       ),
@@ -102,6 +123,7 @@ class CcBillSection extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: SizeConfig.screenWidth * 0.030,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                         Column(
@@ -111,6 +133,7 @@ class CcBillSection extends StatelessWidget {
                               bill.dueAmount,
                               style: TextStyle(
                                 fontSize: SizeConfig.screenWidth * 0.042,
+                                color: Theme.of(context).colorScheme.onPrimary,
                               ),
                             ),
                             Text(

@@ -25,15 +25,15 @@ class Referrallist extends ConsumerWidget {
       leading: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.black),
+          border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
         ),
         child: CircleAvatar(
           radius: SizeConfig.screenWidth * 0.06,
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.primaryFixedDim,
           child: Text(
             contact.initial,
             style: TextStyle(
-              color: Colors.black,
+              color: Theme.of(context).colorScheme.onPrimary,
               fontWeight: FontWeight.bold,
               fontSize: SizeConfig.screenWidth * 0.04,
             ),
@@ -45,18 +45,25 @@ class Referrallist extends ConsumerWidget {
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: SizeConfig.screenWidth * 0.035,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
       subtitle: Row(
         children: [
           Text(
             contact.phone,
-            style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
+            style: TextStyle(
+              fontSize: SizeConfig.screenWidth * 0.03,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
           ),
           SizedBox(width: SizeConfig.screenWidth * 0.018),
           Text(
             s.inviteNwinText,
-            style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
+            style: TextStyle(
+              fontSize: SizeConfig.screenWidth * 0.03,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
           ),
         ],
       ),
@@ -74,7 +81,7 @@ class Referrallist extends ConsumerWidget {
           height: SizeConfig.screenHeight * 0.035,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.black),
+            border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
             color: isSelected ? Colors.blue : Colors.transparent,
           ),
           child: isSelected
