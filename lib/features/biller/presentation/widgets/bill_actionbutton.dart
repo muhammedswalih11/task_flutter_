@@ -37,7 +37,9 @@ class BillActionButton extends StatelessWidget {
                     horizontal: SizeConfig.screenWidth * 0.03,
                     vertical: SizeConfig.screenHeight * 0.005,
                   ),
-                  side: BorderSide(color: Color.fromARGB(255, 12, 66, 111)),
+                  side: BorderSide(
+                    color: Theme.of(context).colorScheme.surfaceTint,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       SizeConfig.screenWidth * 0.045,
@@ -47,7 +49,8 @@ class BillActionButton extends StatelessWidget {
                 child: Text(
                   s.billcardPayText,
                   style: TextStyle(
-                    color: Color.fromARGB(255, 12, 66, 111),
+                    // color: Color.fromARGB(255, 12, 66, 111),
+                    color: Theme.of(context).colorScheme.surfaceTint,
                     fontSize: SizeConfig.screenWidth * 0.030,
                   ),
                 ),

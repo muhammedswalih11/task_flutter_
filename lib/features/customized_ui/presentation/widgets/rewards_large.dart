@@ -34,7 +34,8 @@ class RewardsLaregSection extends StatelessWidget {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey.shade50,
+                        // color: Colors.blueGrey.shade50,
+                        color: Theme.of(context).colorScheme.primaryFixedDim,
                         borderRadius: BorderRadius.circular(
                           SizeConfig.screenWidth * 0.04,
                         ),
@@ -50,38 +51,14 @@ class RewardsLaregSection extends StatelessWidget {
                           Container(
                             height: SizeConfig.screenHeight * 0.40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              // color: Colors.white,
+                              color: Theme.of(context).colorScheme.secondary,
                               borderRadius: BorderRadius.circular(
                                 SizeConfig.screenWidth * 0.04,
                               ),
                             ),
                             padding: EdgeInsets.all(
                               SizeConfig.screenWidth * 0.038,
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                ),
-                                Container(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                ),
-                                Container(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                ),
-                                Container(
-                                  height: SizeConfig.screenHeight * 0.02,
-                                  color: Colors.white,
-                                ),
-                              ],
                             ),
                           ),
                         ],
@@ -106,7 +83,9 @@ class RewardsLaregSection extends StatelessWidget {
                                 right: SizeConfig.screenWidth * 0.020,
                               ),
                               child: Shimmer.fromColors(
-                                baseColor: Colors.grey[300]!,
+                                baseColor: Theme.of(
+                                  context,
+                                ).colorScheme.surfaceBright,
                                 highlightColor: Colors.grey[100]!,
                                 child: Container(
                                   width: SizeConfig.screenWidth * 0.40,

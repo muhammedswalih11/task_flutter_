@@ -85,7 +85,7 @@ class BillsScreen extends ConsumerWidget {
                       vertical: SizeConfig.screenHeight * 0.008,
                     ),
                     child: Shimmer.fromColors(
-                      baseColor: Colors.grey[300]!,
+                      baseColor: Theme.of(context).colorScheme.surfaceBright,
                       highlightColor: Colors.grey[100]!,
                       child: Container(
                         height: SizeConfig.screenHeight * 0.075,
@@ -119,7 +119,7 @@ class BillsScreen extends ConsumerWidget {
                       vertical: SizeConfig.screenHeight * 0.008,
                     ),
                     child: Shimmer.fromColors(
-                      baseColor: Colors.grey[300]!,
+                      baseColor: Theme.of(context).colorScheme.surfaceBright,
                       highlightColor: Colors.grey[100]!,
                       child: Container(
                         height: SizeConfig.screenHeight * 0.075,

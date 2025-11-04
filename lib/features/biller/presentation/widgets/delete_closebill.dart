@@ -12,7 +12,8 @@ class DeleteBill extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 248, 253, 255),
+        // color: const Color.fromARGB(255, 248, 253, 255),
+        color: Theme.of(context).colorScheme.surfaceContainerLow,
         borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
         border: Border.all(color: Colors.blue.shade200),
       ),
@@ -35,11 +36,15 @@ class DeleteBill extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: SizeConfig.screenWidth * 0.04,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               Text(
                 s.deleteBillSubtext,
-                style: TextStyle(fontSize: SizeConfig.screenWidth * 0.03),
+                style: TextStyle(
+                  fontSize: SizeConfig.screenWidth * 0.03,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
               ),
             ],
           ),

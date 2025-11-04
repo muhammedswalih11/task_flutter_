@@ -68,7 +68,9 @@ class Referpage extends ConsumerWidget {
                           child: ListView.separated(
                             itemCount: 6,
                             itemBuilder: (context, index) => Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
+                              baseColor: Theme.of(
+                                context,
+                              ).colorScheme.surfaceBright,
                               highlightColor: Colors.grey[100]!,
                               child: Container(
                                 margin: const EdgeInsets.symmetric(

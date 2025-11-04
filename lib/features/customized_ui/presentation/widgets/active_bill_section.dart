@@ -11,7 +11,7 @@ import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/bill_
 class ActiveBillerSection2 extends StatelessWidget {
   ActiveBillerSection2({super.key});
 
-  final service = CustomizedUiService(); // ✅ ADDED
+  final service = CustomizedUiService();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<BillCardModel>>(
@@ -62,13 +62,18 @@ class ActiveBillerSection2 extends StatelessWidget {
                               left: SizeConfig.screenWidth * 0.076,
                             ),
                             child: Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
+                              baseColor: Theme.of(
+                                context,
+                              ).colorScheme.surfaceBright,
                               highlightColor: Colors.grey[100]!,
                               child: Container(
                                 width: SizeConfig.screenWidth * 0.38,
                                 height: SizeConfig.screenHeight * 0.15,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  // color: Colors.white,
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primaryFixedDim,
                                   borderRadius: BorderRadius.circular(
                                     SizeConfig.screenWidth * 0.03,
                                   ),

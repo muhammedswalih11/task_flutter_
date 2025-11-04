@@ -47,6 +47,18 @@ ThemeData lightMode = ThemeData(
       236,
       250,
     ), // referal code box bg
+
+    surfaceBright: Colors.grey[300]!,
+    surfaceDim: Colors.grey[100]!,
+    surfaceContainerLowest: Colors.white,
+    tertiary: Color.fromARGB(255, 12, 66, 111), //billertilte
+    surfaceTint: Color.fromARGB(255, 15, 121, 207), // recharge button
+    surfaceContainerLow: Color.fromARGB(
+      255,
+      248,
+      253,
+      255,
+    ), // delete close bill
   ),
 
   extensions: [
@@ -78,6 +90,12 @@ ThemeData darkMode = ThemeData(
     surfaceContainer: Color.fromARGB(255, 31, 30, 30), // points earn card
     outlineVariant: Colors.white,
     tertiaryContainer: const Color.fromARGB(255, 37, 37, 37),
+    surfaceBright: Color.fromARGB(255, 31, 30, 30),
+    surfaceDim: Color.fromARGB(255, 31, 30, 30),
+    surfaceContainerLowest: Colors.blue,
+    tertiary: Colors.blue, //billertilte
+    surfaceTint: Colors.white, // recharge button
+    surfaceContainerLow: Color.fromARGB(255, 31, 30, 30), // delete close bill
   ),
 
   extensions: [

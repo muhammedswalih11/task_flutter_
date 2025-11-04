@@ -77,7 +77,9 @@ class RechargeCard extends StatelessWidget {
                         SizeConfig.screenWidth * 0.12,
                         SizeConfig.screenHeight * 0.03,
                       ),
-                      backgroundColor: Colors.white,
+                      backgroundColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerLowest,
                       side: BorderSide(
                         color: Color.fromARGB(255, 15, 121, 207),
                       ),
@@ -94,7 +96,7 @@ class RechargeCard extends StatelessWidget {
                     child: Text(
                       DefaultStrings.instance.rechargeButtonText,
                       style: TextStyle(
-                        color: Color.fromARGB(255, 15, 121, 207),
+                        color: Theme.of(context).colorScheme.surfaceTint,
                         fontSize: SizeConfig.screenWidth * 0.035,
                       ),
                     ),

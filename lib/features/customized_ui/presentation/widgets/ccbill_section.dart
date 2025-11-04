@@ -27,7 +27,8 @@ class CcBillSection extends StatelessWidget {
               padding: EdgeInsets.only(bottom: SizeConfig.screenHeight * 0.012),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.blueGrey.shade50,
+                  // color: Colors.blueGrey.shade50,
+                  color: Theme.of(context).colorScheme.primaryFixedDim,
                   borderRadius: BorderRadius.circular(
                     SizeConfig.screenWidth * 0.03,
                   ),
@@ -39,35 +40,16 @@ class CcBillSection extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
                   child: Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!,
+                    baseColor: Theme.of(context).colorScheme.surfaceBright,
                     highlightColor: Colors.grey[100]!,
                     child: Container(
+                      height: SizeConfig.screenHeight * 0.07,
                       padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.primaryFixedDim,
                         borderRadius: BorderRadius.circular(
                           SizeConfig.screenWidth * 0.03,
                         ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: SizeConfig.screenWidth * 0.25,
-                            height: SizeConfig.screenHeight * 0.03,
-                            color: Colors.white,
-                          ),
-                          Container(
-                            width: SizeConfig.screenWidth * 0.25,
-                            height: SizeConfig.screenHeight * 0.05,
-                            color: Colors.white,
-                          ),
-                          Container(
-                            width: SizeConfig.screenWidth * 0.15,
-                            height: SizeConfig.screenHeight * 0.03,
-                            color: Colors.white,
-                          ),
-                        ],
                       ),
                     ),
                   ),

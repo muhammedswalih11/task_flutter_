@@ -24,7 +24,7 @@ class Header1 extends StatelessWidget {
           style: TextStyle(
             fontSize: SizeConfig.screenWidth * 0.05,
             fontWeight: FontWeight.bold,
-            color: const Color.fromARGB(255, 12, 66, 111),
+            color: Theme.of(context).colorScheme.tertiary,
           ),
         ),
       ],
