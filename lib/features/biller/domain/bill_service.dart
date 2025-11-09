@@ -3,7 +3,7 @@ import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
 import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
 import 'package:flutter_tasks_/core/utils/dio_client.dart';
-import 'package:flutter_tasks_/features/biller/data/models.dart';
+import 'package:flutter_tasks_/features/biller/data/datasource/models.dart';
 
 class BillService {
   final Dio _dio = DioClient.instance;
