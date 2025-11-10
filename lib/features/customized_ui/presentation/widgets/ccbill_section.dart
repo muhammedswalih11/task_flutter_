@@ -1,159 +1,91 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
+
 import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
-import 'package:shimmer/shimmer.dart';
+
+import '../../../../core/utils/colors.dart';
 
 class CcBillSection extends StatelessWidget {
   const CcBillSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final s = DefaultStrings.instance;
     final ccService = CustomizedUiService();
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    final ccBills = ccService.getCcBills();
     return Padding(
       padding: EdgeInsets.only(
-        right: SizeConfig.screenWidth * 0.04,
-        left: SizeConfig.screenWidth * 0.04,
+        right: screenWidth * 0.04,
+        left: screenWidth * 0.04,
       ),
-      child: FutureBuilder<List<CcBillModel>>(
-        future: ccService.fetchCcBills(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            // Single shimmer placeholder while loading (one bill container)
-            return Padding(
-              padding: EdgeInsets.only(bottom: SizeConfig.screenHeight * 0.012),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: ccBills.length,
+        itemBuilder: (context, index) {
+          final bill = ccBills[index];
+          return Container(
+            decoration: BoxDecoration(
+              color: DefaultColors.dashboardGray,
+              borderRadius: BorderRadius.circular(screenWidth * 0.03),
+              border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(screenWidth * 0.032),
               child: Container(
+                padding: EdgeInsets.all(screenWidth * 0.025),
                 decoration: BoxDecoration(
-                  // color: Colors.blueGrey.shade50,
-                  color: Theme.of(context).colorScheme.primaryFixedDim,
-                  borderRadius: BorderRadius.circular(
-                    SizeConfig.screenWidth * 0.03,
-                  ),
-                  border: Border.all(
-                    color: Colors.blueGrey.shade200,
-                    width: 0.6,
-                  ),
+                  color: DefaultColors.white,
+                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
-                  child: Shimmer.fromColors(
-                    baseColor: Theme.of(context).colorScheme.surfaceBright,
-                    highlightColor: Colors.grey[100]!,
-                    child: Container(
-                      height: SizeConfig.screenHeight * 0.07,
-                      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primaryFixedDim,
-                        borderRadius: BorderRadius.circular(
-                          SizeConfig.screenWidth * 0.03,
-                        ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      bill['month'] as String,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: screenWidth * 0.030,
                       ),
                     ),
-                  ),
-                ),
-              ),
-            );
-          }
-
-          if (snapshot.hasError) {
-            return const Center(child: Text('Error loading bills'));
-          }
-
-          final ccBills = snapshot.data ?? [];
-
-          if (ccBills.isEmpty) {
-            return const Text("No bills available.");
-          }
-          return ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: ccBills.length,
-            itemBuilder: (context, index) {
-              final bill = ccBills[index];
-              return Container(
-                decoration: BoxDecoration(
-                  // color: Colors.blueGrey.shade50,
-                  color: Theme.of(context).colorScheme.primary,
-
-                  borderRadius: BorderRadius.circular(
-                    SizeConfig.screenWidth * 0.03,
-                  ),
-                  border: Border.all(
-                    color: Colors.blueGrey.shade200,
-                    width: 0.6,
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(SizeConfig.screenWidth * 0.032),
-                  child: Container(
-                    padding: EdgeInsets.all(SizeConfig.screenWidth * 0.025),
-                    decoration: BoxDecoration(
-                      // color: Colors.white,
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.screenWidth * 0.03,
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          bill.month,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: SizeConfig.screenWidth * 0.030,
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
+                          bill['dueAmount'] as String,
+                          style: TextStyle(fontSize: screenWidth * 0.042),
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              bill.dueAmount,
-                              style: TextStyle(
-                                fontSize: SizeConfig.screenWidth * 0.042,
-                                color: Theme.of(context).colorScheme.onPrimary,
-                              ),
-                            ),
-                            Text(
-                              bill.dueDate,
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontSize: SizeConfig.screenWidth * 0.033,
-                              ),
-                            ),
-                          ],
-                        ),
-                        MaterialButton(
-                          height: SizeConfig.screenHeight * 0.030,
-                          minWidth: SizeConfig.screenWidth * 0.15,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: Color.fromARGB(255, 8, 73, 126),
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              SizeConfig.screenWidth * 0.045,
-                            ),
-                          ),
-
-                          onPressed: () {},
-                          child: Text(
-                            s.ccPayButtontext,
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 8, 73, 126),
-                              fontSize: SizeConfig.screenWidth * 0.036,
-                            ),
-                          ),
+                        Text(
+                          bill['dueDate'] as String,
+                          style: TextStyle(fontSize: screenWidth * 0.033),
                         ),
                       ],
                     ),
-                  ),
+                    MaterialButton(
+                      height: screenHeight * 0.030,
+                      minWidth: screenWidth * 0.15,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: DefaultColors.dashboarddarkBlue,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          screenWidth * 0.045,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Pay',
+                        style: TextStyle(
+                          color: DefaultColors.dashboarddarkBlue,
+                          fontSize: screenWidth * 0.036,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              );
-            },
+              ),
+            ),
           );
         },
       ),

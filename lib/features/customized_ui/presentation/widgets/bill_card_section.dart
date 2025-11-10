@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
 
 class BillCards extends StatelessWidget {
   final String imageUrl;
@@ -19,16 +19,18 @@ class BillCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return SizedBox(
       child: Container(
-        width: SizeConfig.screenWidth * 0.43,
+        width: screenWidth * 0.43,
         decoration: BoxDecoration(
-          // color: Colors.white,
-          color: Theme.of(context).colorScheme.primaryFixedDim,
-          borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.035),
+          // color: Colors.black,
+          color: DefaultColors.white,
+          borderRadius: BorderRadius.circular(screenWidth * 0.035),
           border: Border.all(
             // color: Colors.blueGrey.shade200,
-            color: Theme.of(context).colorScheme.outline,
+            color: DefaultColors.grayMedBase,
             width: 0.6,
           ),
         ),
@@ -38,20 +40,20 @@ class BillCards extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.screenWidth * 0.03,
-                vertical: SizeConfig.screenWidth * 0.02,
+                horizontal: screenWidth * 0.03,
+                vertical: screenWidth * 0.02,
               ),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onSecondaryContainer,
+                color: DefaultColors.dashboardLightBlue,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(SizeConfig.screenWidth * 0.03),
-                  topRight: Radius.circular(SizeConfig.screenWidth * 0.03),
+                  topLeft: Radius.circular(screenWidth * 0.03),
+                  topRight: Radius.circular(screenWidth * 0.03),
                 ),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: SizeConfig.screenWidth * 0.030,
+                    radius: screenWidth * 0.030,
                     backgroundImage: AssetImage(imageUrl),
                   ),
                   Spacer(),
@@ -59,8 +61,7 @@ class BillCards extends StatelessWidget {
                     title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenWidth * 0.035,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: screenWidth * 0.035,
                     ),
                   ),
                 ],
@@ -69,8 +70,8 @@ class BillCards extends StatelessWidget {
             Spacer(),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.screenWidth * 0.013,
-                vertical: SizeConfig.screenWidth * 0.008,
+                horizontal: screenWidth * 0.013,
+                vertical: screenWidth * 0.008,
               ),
               child: Row(
                 children: [
@@ -78,18 +79,13 @@ class BillCards extends StatelessWidget {
                     amount,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenWidth * 0.035,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: screenWidth * 0.035,
                     ),
                   ),
                   Spacer(),
                   Transform.rotate(
                     angle: 0.5,
-                    child: Icon(
-                      trialicon,
-                      size: SizeConfig.screenWidth * 0.055,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
+                    child: Icon(trialicon, size: screenWidth * 0.055),
                   ),
                 ],
               ),

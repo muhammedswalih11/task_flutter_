@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/bottom_sheet.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
+
 import 'package:flutter_tasks_/features/biller/presentation/widgets/delete_closebill.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/due_date_format.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/overlay_info.dart';
@@ -15,7 +13,8 @@ void showBillOverlay(
   DateTime? rawDueDate,
 ) {
   final formattedDate = rawDueDate != null ? formatDate(rawDueDate) : 'N/A';
-  final s = DefaultStrings.instance;
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
 
   showModalBottomSheet(
     context: context,
@@ -25,13 +24,12 @@ void showBillOverlay(
       return Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(top: SizeConfig.screenHeight * 0.04),
-            padding: EdgeInsets.all(SizeConfig.screenWidth * 0.04),
+            margin: EdgeInsets.only(top: screenHeight * 0.04),
+            padding: EdgeInsets.all(screenWidth * 0.04),
             decoration: BoxDecoration(
-              // color: Colors.white,
-              color: Theme.of(context).colorScheme.primaryFixedDim,
+              color: DefaultColors.white,
               borderRadius: BorderRadius.vertical(
-                top: Radius.circular(SizeConfig.screenWidth * 0.05),
+                top: Radius.circular(screenWidth * 0.05),
               ),
             ),
             child: Column(
@@ -42,11 +40,10 @@ void showBillOverlay(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      s.title,
+                      'Manage Biller',
                       style: TextStyle(
-                        fontSize: SizeConfig.screenWidth * 0.05,
+                        fontSize: screenWidth * 0.05,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                     Row(
@@ -54,63 +51,51 @@ void showBillOverlay(
                         Text(
                           title,
                           style: TextStyle(
-                            fontSize: SizeConfig.screenWidth * 0.05,
+                            fontSize: screenWidth * 0.05,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
-                        SizedBox(width: SizeConfig.screenWidth * 0.02),
+                        SizedBox(width: screenWidth * 0.02),
                         CircleAvatar(
-                          radius: SizeConfig.screenWidth * 0.035,
+                          radius: screenWidth * 0.035,
                           backgroundImage: AssetImage(imagePath),
                         ),
                       ],
                     ),
                   ],
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.025),
+                SizedBox(height: screenHeight * 0.025),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                    SizeConfig.screenWidth * 0.04,
-                  ),
+                  borderRadius: BorderRadius.circular(screenWidth * 0.04),
                   child: Container(
                     decoration: BoxDecoration(
-                      // color: Colors.white,
-                      color: Theme.of(context).colorScheme.primaryFixedDim,
+                      // color: Colors.black,
+                      color: DefaultColors.white,
                       border: Border.all(
-                        color: const Color.fromARGB(255, 213, 238, 250),
+                        color: DefaultColors.blue_100,
                         width: 1,
                       ),
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.screenWidth * 0.04,
-                      ),
+                      borderRadius: BorderRadius.circular(screenWidth * 0.04),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        infoRow(s.acnameText, s.accountName, context),
+                        infoRow('Account Name', 'Alqabiadi', context),
                         LightDivider(),
-                        infoRow(
-                          s.amountDueText,
-                          '${amount}${s.currencyQAR}',
-                          context,
-                        ),
+                        infoRow('Amount Due', '${amount}${'QAR'}', context),
                         LightDivider(),
-                        infoRow(s.dueDateText, formattedDate, context),
+                        infoRow('Next Due On', formattedDate, context),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(height: screenHeight * 0.03),
                 InkWell(onTap: () {}, child: DeleteBill()),
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                SizedBox(height: screenHeight * 0.04),
               ],
             ),
           ),
-          Positioned(
-            right: SizeConfig.screenWidth * 0.0100,
-            child: CloseBill(),
-          ),
+          Positioned(right: screenWidth * 0.0100, child: CloseBill()),
         ],
       );
     },

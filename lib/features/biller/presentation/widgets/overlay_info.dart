@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
 
 Widget infoRow(String label, String value, BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
+
   return Padding(
     padding: EdgeInsets.symmetric(
-      horizontal: SizeConfig.screenWidth * 0.03,
-      vertical: SizeConfig.screenHeight * 0.02,
+      horizontal: screenWidth * 0.03,
+      vertical: screenHeight * 0.02,
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -14,16 +17,14 @@ Widget infoRow(String label, String value, BuildContext context) {
           label,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: SizeConfig.screenWidth * 0.04,
-            color: Theme.of(context).colorScheme.onPrimary,
+            fontSize: screenWidth * 0.04,
           ),
         ),
         Text(
           value,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: SizeConfig.screenWidth * 0.04,
-            color: Theme.of(context).colorScheme.onPrimary,
+            fontSize: screenWidth * 0.04,
           ),
         ),
       ],
@@ -36,9 +37,6 @@ class LightDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
-      height: 1,
-      color: const Color.fromARGB(255, 213, 238, 250),
-    );
+    return const Divider(height: 1, color: DefaultColors.blue_100);
   }
 }

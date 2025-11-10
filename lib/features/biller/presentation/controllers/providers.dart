@@ -1,8 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/features/biller/data/models.dart';
-import 'package:flutter_tasks_/features/biller/domian/bill_service.dart';
+import 'package:flutter_tasks_/features/biller/domain/bill_service.dart';
 
 final filterprovider = StateProvider<String>((ref) => "All Bills");
 final billServiceProvider = Provider<BillService>((ref) => BillService());
@@ -10,45 +7,43 @@ final rechargeServiceProvider = Provider<RechargeService>((ref) {
   return RechargeService();
 });
 
-final billListProvider = FutureProvider<List<Bill>>((ref) async {
+final billListProvider = Provider<List<Map<String, dynamic>>>((ref) {
   final service = ref.read(billServiceProvider);
-  return await service.fetchDummyBills();
+  return service.getBills();
 });
 // to hold current search
 final CurrentSearchProvider = StateProvider<String>((ref) => '');
 
 //filtered active bill
-final filteredActiveBillProvider = FutureProvider<List<Bill>>((ref) async {
-  final allBills = await ref.watch(billListProvider.future);
+final filteredActiveBillProvider = Provider<List<Map<String, dynamic>>>((ref) {
+  final allBills = ref.watch(billListProvider);
   final searchquery = ref.watch(CurrentSearchProvider).toLowerCase();
   return allBills
       .where(
         (bill) =>
-            bill.status == BillStatus.active &&
-            bill.name.toLowerCase().contains(searchquery),
+            bill['status'] == 'active' &&
+            (bill['name'] as String).toLowerCase().contains(searchquery),
       )
       .toList();
 });
 
 //filtered paid bills
 
-final filteredPaidBillsProvider = FutureProvider<List<Bill>>((ref) async {
-  final allBills = await ref.watch(billListProvider.future);
+final filteredPaidBillsProvider = Provider<List<Map<String, dynamic>>>((ref) {
+  final allBills = ref.watch(billListProvider);
   final searchQuery = ref.watch(CurrentSearchProvider).toLowerCase();
   return allBills
       .where(
         (bill) =>
-            bill.status == BillStatus.paid &&
-            bill.name.toLowerCase().contains(searchQuery),
+            bill['status'] == 'paid' &&
+            (bill['name'] as String).toLowerCase().contains(searchQuery),
       )
       .toList();
 });
 
 final toggleProvider = StateProvider<int>((ref) => 0);
 
-final rechargeCardProvider = FutureProvider<List<RechargeCardModel>>((
-  ref,
-) async {
+final rechargeCardProvider = Provider<List<Map<String, String>>>((ref) {
   final service = ref.read(rechargeServiceProvider);
-  return await service.fetchDummyRechargeCards();
+  return service.getRechargeCards();
 });

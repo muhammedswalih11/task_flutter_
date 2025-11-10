@@ -1,50 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/bottom_sheet.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
 
 class DeleteBill extends StatelessWidget {
   const DeleteBill({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final s = DefaultStrings.instance;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.03),
+      padding: EdgeInsets.all(screenWidth * 0.03),
       decoration: BoxDecoration(
         // color: const Color.fromARGB(255, 248, 253, 255),
-        color: Theme.of(context).colorScheme.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+        color: DefaultColors.white,
+        borderRadius: BorderRadius.circular(screenWidth * 0.03),
         border: Border.all(color: Colors.blue.shade200),
       ),
       child: Row(
         children: [
           Icon(
             Icons.delete,
-            color: Colors.white,
-            size: SizeConfig.screenWidth * 0.08,
+            color: DefaultColors.white,
+            size: screenWidth * 0.08,
             shadows: [
-              Shadow(offset: Offset(0, 0), blurRadius: 3, color: Colors.black),
+              Shadow(
+                offset: Offset(0, 0),
+                blurRadius: 3,
+                color: DefaultColors.black,
+              ),
             ],
           ),
-          SizedBox(width: SizeConfig.screenWidth * 0.03),
+          SizedBox(width: screenWidth * 0.03),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                s.deleteBillText,
+                'Delete Biller',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: SizeConfig.screenWidth * 0.04,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontSize: screenWidth * 0.04,
                 ),
               ),
               Text(
-                s.deleteBillSubtext,
-                style: TextStyle(
-                  fontSize: SizeConfig.screenWidth * 0.03,
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
+                'You will stop tracking the biller if you delete it',
+                style: TextStyle(fontSize: screenWidth * 0.03),
               ),
             ],
           ),
@@ -59,12 +58,14 @@ class CloseBill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return GestureDetector(
       onTap: () => Navigator.pop(context),
       child: Icon(
         Icons.close,
-        color: Colors.white,
-        size: SizeConfig.screenHeight * 0.03,
+        color: DefaultColors.white,
+        size: screenHeight * 0.03,
       ),
     );
   }

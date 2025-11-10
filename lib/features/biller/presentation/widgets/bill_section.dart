@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/biller/data/models.dart';
 import 'package:flutter_tasks_/features/biller/presentation/widgets/bill_list_section.dart';
+
+import '../../../../core/utils/colors.dart';
 
 class BillSection extends StatelessWidget {
   final String title;
-  final List<Bill> bills;
+  final List<Map<String, dynamic>> bills;
   final bool isPaidSection;
   BillSection({
     required this.title,
@@ -19,15 +17,16 @@ class BillSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (bills.isEmpty) return SliverToBoxAdapter(child: SizedBox.shrink());
-    final s = DefaultStrings.instance;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return SliverList.list(
       children: [
         Padding(
           padding: EdgeInsetsGeometry.fromLTRB(
-            SizeConfig.screenWidth * 0.05,
-            SizeConfig.screenWidth * 0.06,
-            SizeConfig.screenWidth * 0.05,
-            SizeConfig.screenWidth * 0.025,
+            screenWidth * 0.05,
+            screenWidth * 0.06,
+            screenWidth * 0.05,
+            screenWidth * 0.025,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,17 +35,16 @@ class BillSection extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: SizeConfig.screenWidth * 0.045,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontSize: screenWidth * 0.045,
                 ),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  s.addBillText,
+                  "Add Biller",
                   style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: SizeConfig.screenWidth * 0.035,
+                    fontSize: screenWidth * 0.035,
+                    color: DefaultColors.blueLightBase,
                   ),
                 ),
               ),

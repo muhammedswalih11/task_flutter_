@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
 
 class ReferalcodeBox extends ConsumerWidget {
@@ -12,28 +9,29 @@ class ReferalcodeBox extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final s = DefaultStrings.instance;
     final code = ref.watch(referralCodeprovider);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
       decoration: BoxDecoration(
-        // color: Colors.white,
-        color: Theme.of(context).colorScheme.primaryFixedDim,
-        borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.03),
+        // color: Colors.black,
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(screenWidth * 0.03),
       ),
-      padding: EdgeInsets.all(SizeConfig.screenWidth * 0.04),
+      padding: EdgeInsets.all(screenWidth * 0.04),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            s.referBoxHeader,
+            'Your Referral Code',
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onPrimary,
-              fontSize: SizeConfig.screenWidth * 0.035,
+              color: Colors.black,
+              fontSize: screenWidth * 0.035,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.01),
+          SizedBox(height: screenHeight * 0.01),
           Row(
             children: [
               Expanded(
@@ -41,51 +39,42 @@ class ReferalcodeBox extends ConsumerWidget {
                   controller: TextEditingController(text: code),
 
                   readOnly: true,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     filled: true,
 
-                    fillColor: Theme.of(context).colorScheme.tertiaryContainer,
+                    fillColor: Colors.amber.shade100,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.screenWidth * 0.02,
-                      ),
+                      borderRadius: BorderRadius.circular(screenWidth * 0.02),
                       borderSide: BorderSide.none,
                     ),
                     suffixIcon: IconButton(
                       onPressed: () async {
                         await Clipboard.setData(ClipboardData(text: code));
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text(s.copyText)));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Copied to clipboard')),
+                        );
                       },
-                      icon: Icon(
-                        Icons.copy,
-                        size: SizeConfig.screenWidth * 0.06,
-                      ),
+                      icon: Icon(Icons.copy, size: screenWidth * 0.06),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.015),
+          SizedBox(height: screenHeight * 0.015),
           MaterialButton(
             minWidth: double.infinity,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                SizeConfig.screenWidth * 0.045,
-              ),
+              borderRadius: BorderRadius.circular(screenWidth * 0.045),
             ),
             color: const Color.fromARGB(255, 8, 79, 138),
             onPressed: () {},
             child: Text(
-              s.shareandEarnText,
+              'Share and Earn',
               style: TextStyle(
-                color: Colors.white,
-                fontSize: SizeConfig.screenWidth * 0.035,
+                color: Colors.black,
+                fontSize: screenWidth * 0.035,
               ),
             ),
           ),

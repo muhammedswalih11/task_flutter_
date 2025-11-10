@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-
-final s = DefaultStrings.instance;
 
 class Invitewidget extends StatelessWidget {
   final IconData icon;
@@ -20,35 +15,36 @@ class Invitewidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      width: SizeConfig.screenWidth * 0.2,
+      width: screenWidth * 0.2,
       child: Column(
         children: [
           Container(
-            width: SizeConfig.screenWidth * 0.12,
-            height: SizeConfig.screenHeight * 0.06,
+            width: screenWidth * 0.12,
+            height: screenHeight * 0.06,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryFixedDim,
-              borderRadius: BorderRadius.circular(
-                SizeConfig.screenWidth * 0.03,
-              ),
+              color: Colors.grey.shade200,
+              borderRadius: BorderRadius.circular(screenWidth * 0.03),
             ),
             child: Padding(
-              padding: EdgeInsets.all(SizeConfig.screenWidth * 0.015),
-              child: Icon(icon, size: SizeConfig.screenWidth * 0.08),
+              padding: EdgeInsets.all(screenWidth * 0.015),
+              child: Icon(icon, size: screenWidth * 0.08),
             ),
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.008),
+          SizedBox(height: screenHeight * 0.008),
           SizedBox(
-            width: SizeConfig.screenWidth * 0.2,
+            width: screenWidth * 0.2,
             child: Column(
               children: [
                 Text(
                   label,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: SizeConfig.screenWidth * 0.03,
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    fontSize: screenWidth * 0.03,
+                    color: Colors.black,
                   ),
 
                   overflow: TextOverflow.ellipsis,
@@ -76,15 +72,27 @@ class InviteRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Invitewidget(color: Colors.white, icon: Icons.help, label: s.helpLink),
         Invitewidget(
-          // color: Colors.white,
-          color: Theme.of(context).colorScheme.primaryFixedDim,
-          icon: Icons.call,
-          label: s.whatsappLink,
+          color: Colors.black,
+          icon: Icons.help,
+          label: 'How to\nrefer',
         ),
-        Invitewidget(color: Colors.white, icon: Icons.qr_code, label: s.qrLink),
-        Invitewidget(color: Colors.white, icon: Icons.copy, label: s.copyLink),
+        Invitewidget(
+          // color: Colors.black,
+          color: Colors.grey.shade200,
+          icon: Icons.call,
+          label: 'Invite via\nWhatsapp',
+        ),
+        Invitewidget(
+          color: Colors.black,
+          icon: Icons.qr_code,
+          label: 'Invite via\nreferral QR',
+        ),
+        Invitewidget(
+          color: Colors.black,
+          icon: Icons.copy,
+          label: 'Referral\nCode',
+        ),
       ],
     );
   }

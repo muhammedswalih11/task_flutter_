@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class BonusText extends StatelessWidget {
   const BonusText({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final s = DefaultStrings.instance;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          s.rlBonusText,
+          '150 reward bonus',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: SizeConfig.screenWidth * 0.046,
-            color: Theme.of(context).colorScheme.onPrimary,
+            fontSize: screenWidth * 0.046,
           ),
         ),
         Text(
-          s.rlClaimtext,
+          'Claim upto 150 reward points after\nreaching the next transaction goal',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: SizeConfig.screenWidth * 0.032,
-            color: Theme.of(context).colorScheme.onPrimary,
+            fontSize: screenWidth * 0.032,
           ),
         ),
       ],

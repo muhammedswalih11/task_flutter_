@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/refer_page.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/refer/data/models/contactmodel.dart';
+
 import 'package:flutter_tasks_/features/refer/presentation/controllers/providers.dart';
 
 class Referrallist extends ConsumerWidget {
-  final Contact contact;
+  final Map<String, String> contact;
   final int id;
 
   const Referrallist({required this.contact, required this.id, super.key});
@@ -16,54 +13,54 @@ class Referrallist extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedList = ref.watch(selectedReferralProvider);
     final isSelected = selectedList.contains(id);
-    final s = DefaultStrings.instance;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    final contactName = contact['name'] ?? '';
+    final contactPhone = contact['phone'] ?? '';
+    final initial = contactName.isNotEmpty ? contactName[0].toUpperCase() : '?';
+
     return ListTile(
       contentPadding: EdgeInsets.symmetric(
-        vertical: SizeConfig.screenHeight * 0.007,
-        horizontal: SizeConfig.screenWidth * 0.01,
+        vertical: screenHeight * 0.007,
+        horizontal: screenWidth * 0.01,
       ),
       leading: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
+          border: Border.all(color: Colors.white),
         ),
         child: CircleAvatar(
-          radius: SizeConfig.screenWidth * 0.06,
-          backgroundColor: Theme.of(context).colorScheme.primaryFixedDim,
+          radius: screenWidth * 0.06,
+          backgroundColor: Colors.grey.shade200,
           child: Text(
-            contact.initial,
+            initial,
             style: TextStyle(
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: SizeConfig.screenWidth * 0.04,
+              fontSize: screenWidth * 0.04,
             ),
           ),
         ),
       ),
       title: Text(
-        contact.name,
+        contactName,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: SizeConfig.screenWidth * 0.035,
-          color: Theme.of(context).colorScheme.onPrimary,
+          fontSize: screenWidth * 0.035,
+          color: Colors.black,
         ),
       ),
       subtitle: Row(
         children: [
           Text(
-            contact.phone,
-            style: TextStyle(
-              fontSize: SizeConfig.screenWidth * 0.03,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            contactPhone,
+            style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
           ),
-          SizedBox(width: SizeConfig.screenWidth * 0.018),
+          SizedBox(width: screenWidth * 0.018),
           Text(
-            s.inviteNwinText,
-            style: TextStyle(
-              fontSize: SizeConfig.screenWidth * 0.03,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            'Invite and win 20 QAR',
+            style: TextStyle(fontSize: screenWidth * 0.03, color: Colors.black),
           ),
         ],
       ),
@@ -77,19 +74,15 @@ class Referrallist extends ConsumerWidget {
           }
         },
         child: Container(
-          width: SizeConfig.screenWidth * 0.075,
-          height: SizeConfig.screenHeight * 0.035,
+          width: screenWidth * 0.075,
+          height: screenHeight * 0.035,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
+            border: Border.all(color: Colors.white),
             color: isSelected ? Colors.blue : Colors.transparent,
           ),
           child: isSelected
-              ? Icon(
-                  Icons.check,
-                  size: SizeConfig.screenWidth * 0.04,
-                  color: Colors.white,
-                )
+              ? Icon(Icons.check, size: screenWidth * 0.04, color: Colors.white)
               : null,
         ),
       ),

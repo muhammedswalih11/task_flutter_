@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/customized_ui.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/customized_ui/datas/models.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
+
 import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/bill_card_section.dart';
 
 class ActiveBillerSection2 extends StatelessWidget {
@@ -14,148 +10,60 @@ class ActiveBillerSection2 extends StatelessWidget {
   final service = CustomizedUiService();
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<BillCardModel>>(
-      future: service.fetchActiveBillers(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          // Show shimmer placeholders matching the BillCards size
-          return SizedBox(
-            width: double.infinity,
-            child: Container(
-              width: double.infinity,
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: SizeConfig.screenWidth * 0.04,
-                      left: SizeConfig.screenWidth * 0.04,
-                    ),
-                    child: Container(
-                      height: SizeConfig.screenHeight * 0.18,
-                      decoration: BoxDecoration(
-                        // color: Colors.blueGrey.shade50,
-                        color: Theme.of(context).colorScheme.primary,
-                        borderRadius: BorderRadius.circular(
-                          SizeConfig.screenWidth * 0.035,
-                        ),
-                        border: Border.all(
-                          // color: Colors.blueGrey.shade200,
-                          color: Theme.of(context).colorScheme.outline,
-                          width: 0.6,
-                        ),
-                      ),
-                    ),
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final billCards = service.getActiveBillers();
+    return SizedBox(
+      width: double.infinity,
+      child: Container(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                right: screenWidth * 0.04,
+                left: screenWidth * 0.04,
+              ),
+              child: Container(
+                height: screenHeight * 0.18,
+                decoration: BoxDecoration(
+                  color: DefaultColors.dashboardGray,
+                  borderRadius: BorderRadius.circular(screenWidth * 0.035),
+                  border: Border.all(
+                    color: DefaultColors.grayMedBase,
+                    width: 0.6,
                   ),
-                  Positioned(
-                    top: SizeConfig.screenHeight * 0.015,
-                    left: 0,
-                    right: 0,
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: SizeConfig.screenHeight * 0.15,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 4,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.only(
-                              left: SizeConfig.screenWidth * 0.076,
-                            ),
-                            child: Shimmer.fromColors(
-                              baseColor: Theme.of(
-                                context,
-                              ).colorScheme.surfaceBright,
-                              highlightColor: Colors.grey[100]!,
-                              child: Container(
-                                width: SizeConfig.screenWidth * 0.38,
-                                height: SizeConfig.screenHeight * 0.15,
-                                decoration: BoxDecoration(
-                                  // color: Colors.white,
-                                  color: Theme.of(
-                                    context,
-                                  ).colorScheme.primaryFixedDim,
-                                  borderRadius: BorderRadius.circular(
-                                    SizeConfig.screenWidth * 0.03,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-          );
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error Loading Billers'));
-        }
-
-        final billCards = snapshot.data!;
-        return SizedBox(
-          width: double.infinity,
-          child: Container(
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    right: SizeConfig.screenWidth * 0.04,
-                    left: SizeConfig.screenWidth * 0.04,
-                  ),
-                  child: Container(
-                    height: SizeConfig.screenHeight * 0.18,
-
-                    decoration: BoxDecoration(
-                      // color: Colors.blueGrey.shade50,
-                      color: Theme.of(context).colorScheme.primary,
-
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.screenWidth * 0.035,
+            Positioned(
+              top: screenHeight * 0.015,
+              left: 0,
+              right: 0,
+              child: SizedBox(
+                width: double.infinity,
+                height: screenHeight * 0.15,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: billCards.length,
+                  itemBuilder: (context, index) {
+                    final card = billCards[index];
+                    return Padding(
+                      padding: EdgeInsets.only(left: screenWidth * 0.076),
+                      child: BillCards(
+                        imageUrl: card['imageUrl'],
+                        title: card['title'],
+                        amount: card['amount'],
+                        trialicon: card['trialIcon'],
                       ),
-                      border: Border.all(
-                        // color: Colors.blueGrey.shade200,
-                        color: Theme.of(context).colorScheme.outline,
-                        width: 0.6,
-                      ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
-
-                Positioned(
-                  top: SizeConfig.screenHeight * 0.015,
-                  left: 0,
-                  right: 0,
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: SizeConfig.screenHeight * 0.15,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: billCards.length,
-                      itemBuilder: (context, index) {
-                        final card = billCards[index];
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            left: SizeConfig.screenWidth * 0.076,
-                          ),
-                          child: BillCards(
-                            imageUrl: card.imageUrl,
-                            title: card.title,
-                            amount: card.amount,
-                            trialicon: card.trialIcon,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
     );
   }
 }

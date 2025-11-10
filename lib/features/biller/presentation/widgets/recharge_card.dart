@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/default_string.dart';
-import 'package:flutter_tasks_/core/constants/app_strings/parts/biller_page.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/features/biller/data/models.dart';
+
+import '../../../../core/utils/colors.dart';
 
 class RechargeCard extends StatelessWidget {
-  final RechargeCardModel model;
+  final Map<String, String> model;
 
   const RechargeCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
       child: Padding(
         padding: EdgeInsets.only(
-          left: SizeConfig.screenWidth * 0.05,
+          left: screenWidth * 0.05,
           // right: SizeConfig.screenWidth * 0.0,
         ),
         child: Container(
-          width: SizeConfig.screenWidth * 0.8,
-          margin: EdgeInsets.only(right: SizeConfig.screenWidth * 0.05),
-          padding: EdgeInsets.all(SizeConfig.screenWidth * 0.028),
+          width: screenWidth * 0.8,
+          margin: EdgeInsets.only(right: screenWidth * 0.05),
+          padding: EdgeInsets.all(screenWidth * 0.028),
           decoration: BoxDecoration(
-            // color: Colors.white,
-            color: Theme.of(context).colorScheme.primaryFixedDim,
-            borderRadius: BorderRadius.circular(SizeConfig.screenWidth * 0.04),
+            // color: Colors.black,
+            color: DefaultColors.white,
+            borderRadius: BorderRadius.circular(screenWidth * 0.04),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,57 +37,46 @@ class RechargeCard extends StatelessWidget {
                   Row(
                     children: [
                       CircleAvatar(
-                        radius: SizeConfig.screenWidth * 0.025,
-                        backgroundImage: AssetImage(model.imagePath),
+                        radius: screenWidth * 0.025,
+                        backgroundImage: AssetImage(model['imagePath']!),
                       ),
-                      SizedBox(width: SizeConfig.screenHeight * 0.012),
+                      SizedBox(width: screenHeight * 0.012),
                       Text(
-                        model.title,
-                        style: TextStyle(
-                          fontSize: SizeConfig.screenWidth * 0.035,
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
+                        model['title']!,
+                        style: TextStyle(fontSize: screenWidth * 0.035),
                       ),
                     ],
                   ),
                   Text(
-                    model.type,
-                    style: TextStyle(
-                      fontSize: SizeConfig.screenWidth * 0.035,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
+                    model['type']!,
+                    style: TextStyle(fontSize: screenWidth * 0.035),
                   ),
                 ],
               ),
-              SizedBox(height: SizeConfig.screenHeight * 0.025),
+              SizedBox(height: screenHeight * 0.025),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    model.amount,
+                    model['amount']!,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenWidth * 0.045,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: screenWidth * 0.045,
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(
-                        SizeConfig.screenWidth * 0.12,
-                        SizeConfig.screenHeight * 0.03,
+                        screenWidth * 0.12,
+                        screenHeight * 0.03,
                       ),
                       backgroundColor: Theme.of(
                         context,
                       ).colorScheme.surfaceContainerLowest,
-                      side: BorderSide(
-                        color: Color.fromARGB(255, 15, 121, 207),
-                      ),
+                      side: BorderSide(color: DefaultColors.blue4),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          SizeConfig.screenWidth * 0.05,
-                        ),
+                        borderRadius: BorderRadius.circular(screenWidth * 0.05),
                       ),
                       // padding: EdgeInsets.symmetric(
                       //   horizontal: SizeConfig.screenWidth * 0.03,
@@ -94,10 +84,10 @@ class RechargeCard extends StatelessWidget {
                       // ),
                     ),
                     child: Text(
-                      DefaultStrings.instance.rechargeButtonText,
+                      'Recharge',
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.surfaceTint,
-                        fontSize: SizeConfig.screenWidth * 0.035,
+                        color: DefaultColors.blue4,
+                        fontSize: screenWidth * 0.035,
                       ),
                     ),
                   ),

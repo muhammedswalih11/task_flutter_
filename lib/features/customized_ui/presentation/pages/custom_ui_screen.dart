@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
-import 'package:flutter_tasks_/core/utils/theme.dart';
+import 'package:flutter_tasks_/core/utils/colors.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/controllers/providers.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/active_bill_section.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/card_spend_section.dart';
@@ -16,10 +15,9 @@ class CustomizedUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
-    final appGradient = Theme.of(
-      context,
-    ).extension<AppGradients>()!.appBarGradient;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     final List<Map<String, dynamic>> sectionList = [
       {'type': 'header', 'title': 'Pinned'},
       {
@@ -62,39 +60,29 @@ class CustomizedUI extends StatelessWidget {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(SizeConfig.screenHeight * 0.12),
+        preferredSize: Size.fromHeight(screenHeight * 0.12),
         child: AppBar(
-          backgroundColor: Colors.transparent,
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.arrow_back,
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
           ),
-          title: Text(
+          title: const Text(
             'Customize Widgets',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.onSecondary,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(gradient: appGradient),
+            decoration: BoxDecoration(gradient: DefaultColors.appBarGradient),
           ),
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.background,
+
       body: SafeArea(
         child: Container(
-          width: SizeConfig.screenWidth,
+          width: screenWidth,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(SizeConfig.screenWidth * 0.040),
-              topRight: Radius.circular(SizeConfig.screenWidth * 0.040),
-            ),
-            border: Border(
-              top: BorderSide(color: Theme.of(context).colorScheme.outline),
+              topLeft: Radius.circular(screenWidth * 0.040),
+              topRight: Radius.circular(screenWidth * 0.040),
             ),
           ),
           child: ListView.builder(
@@ -105,25 +93,20 @@ class CustomizedUI extends StatelessWidget {
                 case 'header':
                   return Padding(
                     padding: EdgeInsets.only(
-                      top: SizeConfig.screenHeight * 0.036,
-
-                      left: SizeConfig.screenWidth * 0.04,
+                      top: screenHeight * 0.036,
+                      left: screenWidth * 0.04,
                     ),
                     child: Text(
                       item['title'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: SizeConfig.screenWidth * 0.048,
-                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: screenWidth * 0.048,
                       ),
                     ),
                   );
-
                 case 'card':
                   return Padding(
-                    padding: EdgeInsets.only(
-                      bottom: SizeConfig.screenHeight * 0.012,
-                    ),
+                    padding: EdgeInsets.only(bottom: screenHeight * 0.012),
                     child: CardSections(
                       title: item['title'],
                       dropdownChild: item['widget'],
@@ -132,18 +115,16 @@ class CustomizedUI extends StatelessWidget {
                       isblueIcon: item['isBlueIcon'] ?? true,
                     ),
                   );
-
                 case 'button':
                   return Padding(
                     padding: EdgeInsets.only(
-                      top: SizeConfig.screenHeight * 0.045,
-                      bottom: SizeConfig.screenHeight * 0.02,
+                      top: screenHeight * 0.045,
+                      bottom: screenHeight * 0.02,
                     ),
-                    child: DoneButton(),
+                    child: const DoneButton(),
                   );
-
                 default:
-                  return SizedBox.shrink();
+                  return const SizedBox.shrink();
               }
             },
           ),

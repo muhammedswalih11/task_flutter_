@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
+
+import '../../../../core/utils/colors.dart';
 
 class CardSections extends ConsumerWidget {
   final String title;
@@ -20,36 +21,36 @@ class CardSections extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     final isExpanded = ref.watch(stateProvider);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.only(
-            right: SizeConfig.screenWidth * 0.03,
-            left: SizeConfig.screenWidth * 0.03,
+            right: screenWidth * 0.03,
+            left: screenWidth * 0.03,
           ),
           child: Row(
             children: [
               Expanded(
                 child: Container(
-                  height: SizeConfig.screenHeight * 0.066,
+                  height: screenHeight * 0.066,
                   child: Card(
-                    // color: Colors.white,
-                    color: Theme.of(context).colorScheme.primaryFixedDim,
+                    color: DefaultColors.dashboardGray,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.screenWidth * 0.04,
-                      ),
+                      borderRadius: BorderRadius.circular(screenWidth * 0.04),
                       side: BorderSide(
-                        color: Colors.blueGrey.shade200,
+                        color: DefaultColors.grayMedBase,
                         width: 0.6,
                       ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.only(
-                        right: SizeConfig.screenWidth * 0.02,
-                        left: SizeConfig.screenWidth * 0.02,
+                        right: screenWidth * 0.02,
+                        left: screenWidth * 0.02,
                       ),
                       child: Row(
                         children: [
@@ -57,23 +58,25 @@ class CardSections extends ConsumerWidget {
                             angle: 0.5,
                             child: Icon(
                               Icons.push_pin,
-                              color: isblueIcon ? Colors.blue : Colors.white,
-                              size: SizeConfig.screenWidth * 0.05,
+                              color: isblueIcon
+                                  ? DefaultColors.blue
+                                  : DefaultColors.white,
+                              size: screenWidth * 0.05,
                               shadows: [
                                 Shadow(
                                   offset: Offset(0, 0),
                                   blurRadius: 3,
-                                  color: Colors.black,
+                                  color: DefaultColors.black,
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(width: SizeConfig.screenWidth * 0.02),
+                          SizedBox(width: screenWidth * 0.02),
                           Text(
                             title,
                             style: TextStyle(
-                              fontSize: SizeConfig.screenWidth * 0.042,
-                              color: Theme.of(context).colorScheme.onPrimary,
+                              fontSize: screenWidth * 0.042,
+                              color: DefaultColors.black,
                             ),
                           ),
                           Spacer(),
@@ -86,8 +89,8 @@ class CardSections extends ConsumerWidget {
                               isExpanded
                                   ? Icons.keyboard_arrow_up
                                   : Icons.keyboard_arrow_down,
-                              size: SizeConfig.screenWidth * 0.06,
-                              color: Theme.of(context).colorScheme.onPrimary,
+                              size: screenWidth * 0.06,
+                              color: DefaultColors.black,
                             ),
                           ),
                         ],
@@ -99,8 +102,8 @@ class CardSections extends ConsumerWidget {
               if (showTriallingIcon)
                 Image.asset(
                   'assets/images/drag.png',
-                  width: SizeConfig.screenWidth * 0.06,
-                  height: SizeConfig.screenHeight * 0.06,
+                  width: screenWidth * 0.06,
+                  height: screenHeight * 0.06,
                 ),
             ],
           ),

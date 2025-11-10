@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/core/utils/size_configuration.dart';
 
 class SpendRow extends StatelessWidget {
   final String name;
@@ -16,13 +15,15 @@ class SpendRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Row(
       children: [
         CircleAvatar(
           backgroundImage: AssetImage(imagePath),
-          radius: SizeConfig.screenWidth * 0.037,
+          radius: screenWidth * 0.037,
         ),
-        SizedBox(width: SizeConfig.screenWidth * 0.02),
+        SizedBox(width: screenWidth * 0.02),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,26 +31,18 @@ class SpendRow extends StatelessWidget {
               name,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: SizeConfig.screenWidth * 0.038,
-                color: Theme.of(context).colorScheme.onPrimary,
+                fontSize: screenWidth * 0.038,
               ),
             ),
-            Text(
-              category,
-              style: TextStyle(
-                fontSize: SizeConfig.screenWidth * 0.034,
-                color: Theme.of(context).colorScheme.onPrimary,
-              ),
-            ),
+            Text(category, style: TextStyle(fontSize: screenWidth * 0.034)),
           ],
         ),
         const Spacer(),
         Text(
           amount,
           style: TextStyle(
-            fontSize: SizeConfig.screenWidth * 0.038,
+            fontSize: screenWidth * 0.038,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ],
