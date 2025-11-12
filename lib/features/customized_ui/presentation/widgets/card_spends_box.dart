@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
+import 'package:flutter_tasks_/features/customized_ui/constants/customized_ui_service.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/spend_row.dart';
 
 import '../../../../core/utils/colors.dart';
@@ -37,10 +37,10 @@ class CardSpendsBox extends StatelessWidget {
                 'View all Spends',
                 style: TextStyle(
                   color: DefaultColors.dashboarddarkBlue,
-                  fontSize: screenWidth * 0.038,
+                  fontSize: 13,
                 ),
               ),
-              SizedBox(width: screenWidth * 0.040),
+              SizedBox(width: 14.00),
               Transform.rotate(
                 angle: 0.5,
                 child: Icon(

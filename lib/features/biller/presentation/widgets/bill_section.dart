@@ -22,28 +22,20 @@ class BillSection extends StatelessWidget {
     return SliverList.list(
       children: [
         Padding(
-          padding: EdgeInsetsGeometry.fromLTRB(
-            screenWidth * 0.05,
-            screenWidth * 0.06,
-            screenWidth * 0.05,
-            screenWidth * 0.025,
-          ),
+          padding: EdgeInsetsGeometry.fromLTRB(18, 9, 18, 9),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenWidth * 0.045,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
                   "Add Biller",
                   style: TextStyle(
-                    fontSize: screenWidth * 0.035,
+                    fontSize: 12.5,
                     color: DefaultColors.blueLightBase,
                   ),
                 ),

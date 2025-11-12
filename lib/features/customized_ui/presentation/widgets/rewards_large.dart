@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
+import 'package:flutter_tasks_/features/customized_ui/constants/customized_ui_service.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/bonustext.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/point_box.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/points_earncard.dart';
@@ -25,20 +25,17 @@ class RewardsLaregSection extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                right: screenWidth * 0.04,
-                left: screenWidth * 0.04,
-              ),
+              padding: EdgeInsets.only(right: 18, left: 18),
               child: Container(
                 decoration: BoxDecoration(
-                  color: DefaultColors.dashboardGray,
-                  borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                  color: DefaultColors.blue_0,
+                  borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     color: DefaultColors.grayMedBase,
                     width: 0.6,
                   ),
                 ),
-                padding: EdgeInsets.all(screenWidth * 0.045),
+                padding: EdgeInsets.all(20),
                 child: Column(
                   children: [
                     PointsEarnCard(),
@@ -47,22 +44,22 @@ class RewardsLaregSection extends StatelessWidget {
                       height: screenHeight * 0.40,
                       decoration: BoxDecoration(
                         color: DefaultColors.white,
-                        borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      padding: EdgeInsets.all(screenWidth * 0.038),
+                      padding: EdgeInsets.all(15),
                       child: Column(
                         children: [
                           Row(
                             children: [
                               pointBox(
-                                height: screenHeight * 0.08,
+                                height: screenHeight * 0.07,
                                 width: screenWidth * 0.16,
-                                fontSize: screenWidth * 0.047,
+                                fontSize: 17,
                                 iconSize: screenWidth * 0.06,
                                 imageSize: screenWidth * 0.06,
                                 showBorder: true,
                               ),
-                              SizedBox(width: screenWidth * 0.033),
+                              SizedBox(width: 11.03),
                               BonusText(),
                             ],
                           ),
@@ -77,27 +74,27 @@ class RewardsLaregSection extends StatelessWidget {
             ),
             Positioned(
               top: screenHeight * 0.25,
-              left: screenWidth * 0.10,
+              left: 36.00,
               bottom: screenHeight * 0.04,
               child: SizedBox(
                 height: screenHeight * 0.2,
                 width: screenWidth,
                 child: Padding(
-                  padding: EdgeInsets.all(screenWidth * 0.020),
+                  padding: EdgeInsets.all(9),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: rewardBoxes.length,
                     itemBuilder: (context, index) {
                       final reward = rewardBoxes[index];
                       return Padding(
-                        padding: EdgeInsets.only(right: screenWidth * 0.020),
+                        padding: EdgeInsets.only(right: 9),
                         child: RewardBox(
                           type: reward['type'],
                           title: reward['title'],
                           progressPercentage:
                               reward['progressPercentage'] ?? 0.0,
                           onTap: () {},
-                          width: screenWidth * 0.40,
+                          width: 144.00,
                         ),
                       );
                     },

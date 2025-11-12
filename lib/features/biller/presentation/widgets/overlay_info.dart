@@ -6,26 +6,17 @@ Widget infoRow(String label, String value, BuildContext context) {
   final screenHeight = MediaQuery.of(context).size.height;
 
   return Padding(
-    padding: EdgeInsets.symmetric(
-      horizontal: screenWidth * 0.03,
-      vertical: screenHeight * 0.02,
-    ),
+    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           label,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.04,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
         ),
         Text(
           value,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.04,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
         ),
       ],
     ),

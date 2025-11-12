@@ -21,7 +21,7 @@ class BillSearchBar extends ConsumerWidget {
         filled: true,
         fillColor: DefaultColors.white,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.075),
+          borderRadius: BorderRadius.circular(25.05),
           borderSide: BorderSide(color: DefaultColors.grayB0),
         ),
       ),

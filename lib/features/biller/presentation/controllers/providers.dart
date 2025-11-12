@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tasks_/features/biller/domain/bill_service.dart';
+import 'package:flutter_tasks_/features/biller/constants/bill_service.dart';
 
 final filterprovider = StateProvider<String>((ref) => "All Bills");
 final billServiceProvider = Provider<BillService>((ref) => BillService());

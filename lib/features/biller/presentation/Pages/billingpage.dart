@@ -18,25 +18,20 @@ class BillsScreen extends ConsumerWidget {
     final activeBills = ref.watch(filteredActiveBillProvider);
     final paidBills = ref.watch(filteredPaidBillsProvider);
 
-    // Toggle state currently not needed locally; watched implicitly by child widgets.
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       // backgroundColor: const Color.fromARGB(255, 246, 242, 242),
-      backgroundColor: DefaultColors.blue_0,
+      // backgroundColor: DefaultColors.blue_0,
+      backgroundColor: DefaultColors.white,
       body: SafeArea(
         top: false,
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  screenWidth * 0.04,
-                  screenWidth * 0.1,
-                  screenWidth * 0.04,
-                  screenWidth * 0.04,
-                ),
+                padding: EdgeInsets.fromLTRB(18, 50, 18, 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -52,16 +47,13 @@ class BillsScreen extends ConsumerWidget {
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
+                padding: EdgeInsets.symmetric(horizontal: 18),
                 child: BillSearchBar(),
               ),
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.04,
-                  vertical: screenWidth * 0.03,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                 child: Toggles(),
               ),
             ),

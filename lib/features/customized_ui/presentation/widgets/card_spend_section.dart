@@ -13,35 +13,26 @@ class CardSpendSection extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.only(
-        right: screenWidth * 0.04,
-        left: screenWidth * 0.04,
-      ),
+      padding: EdgeInsets.only(right: 18, left: 18),
       child: Container(
         decoration: BoxDecoration(
-          // color: Colors.blueGrey.shade50,
-          color: DefaultColors.dashboardGray,
-          borderRadius: BorderRadius.circular(screenWidth * 0.045),
+          color: DefaultColors.blue_0,
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(color: DefaultColors.grayMedBase, width: 0.6),
         ),
-        padding: EdgeInsets.only(
-          top: screenHeight * 0.04,
-          right: screenWidth * 0.03,
-          left: screenWidth * 0.03,
-          bottom: screenHeight * 0.02,
-        ),
+        padding: EdgeInsets.only(top: 40, right: 12, left: 12, bottom: 20),
         child: Stack(
           clipBehavior: Clip.none,
           alignment: AlignmentGeometry.topCenter,
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                borderRadius: BorderRadius.circular(15),
                 // color: Colors.black,
                 color: DefaultColors.white,
               ),
               child: Padding(
-                padding: EdgeInsets.all(screenWidth * 0.06),
+                padding: EdgeInsets.all(20),
                 child: SizedBox(
                   height: screenHeight * 0.24,
                   child: CardSpendsBox(),
@@ -52,18 +43,15 @@ class CardSpendSection extends StatelessWidget {
               top: -screenWidth * 0.04,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(screenWidth * 0.05),
+                  borderRadius: BorderRadius.circular(25),
 
                   color: DefaultColors.white,
                   border: Border.all(color: DefaultColors.grayMedBase),
                 ),
-                padding: EdgeInsets.all(screenWidth * 0.025),
+                padding: EdgeInsets.all(5),
                 child: Text(
                   'Your recent spends',
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.028,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                 ),
               ),
             ),

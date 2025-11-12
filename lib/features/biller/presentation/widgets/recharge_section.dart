@@ -15,11 +15,7 @@ class RechargeAndBalancesSection extends ConsumerWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-            left: screenWidth * 0.04,
-            bottom: screenWidth * 0.025,
-            right: screenWidth * 0.04,
-          ),
+          padding: EdgeInsets.only(left: 18, bottom: 18, right: 18),
           child: RechargeHeadText(),
         ),
 

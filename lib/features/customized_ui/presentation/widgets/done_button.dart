@@ -11,24 +11,16 @@ class DoneButton extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.only(
-        right: screenWidth * 0.03,
-        left: screenWidth * 0.03,
-      ),
+      padding: EdgeInsets.only(right: 18, left: 18),
       child: MaterialButton(
         onPressed: () {},
         height: screenHeight * 0.055,
         minWidth: screenWidth,
         color: DefaultColors.dashboarddarkBlue,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(screenWidth * 0.08),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         child: Text(
           'Done',
-          style: TextStyle(
-            color: DefaultColors.white,
-            fontSize: screenWidth * 0.03,
-          ),
+          style: TextStyle(color: DefaultColors.white, fontSize: 11.0),
         ),
       ),
     );

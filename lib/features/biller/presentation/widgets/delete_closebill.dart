@@ -9,11 +9,11 @@ class DeleteBill extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.all(screenWidth * 0.03),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         // color: const Color.fromARGB(255, 248, 253, 255),
         color: DefaultColors.white,
-        borderRadius: BorderRadius.circular(screenWidth * 0.03),
+        borderRadius: BorderRadius.circular(15),
         border: Border.all(color: Colors.blue.shade200),
       ),
       child: Row(
@@ -36,14 +36,11 @@ class DeleteBill extends StatelessWidget {
             children: [
               Text(
                 'Delete Biller',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenWidth * 0.04,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
               ),
               Text(
                 'You will stop tracking the biller if you delete it',
-                style: TextStyle(fontSize: screenWidth * 0.03),
+                style: TextStyle(fontSize: 11.0),
               ),
             ],
           ),

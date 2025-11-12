@@ -10,15 +10,17 @@ class Header1 extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
+        SizedBox(width: 12),
         Text(
           'Billers',
           style: TextStyle(
-            fontSize: screenWidth * 0.05,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
             color: DefaultColors.blue4,
           ),
@@ -39,17 +41,13 @@ class Header2 extends StatelessWidget {
       children: [
         Text(
           'You Have',
-          style: TextStyle(
-            fontSize: screenWidth * 0.05,
-
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
         SizedBox(width: screenWidth * 0.02),
         Text(
           '4 Bills due',
           style: TextStyle(
-            fontSize: screenWidth * 0.05,
+            fontSize: 18.0,
             color: DefaultColors.blueLightBase,
             fontWeight: FontWeight.bold,
           ),
@@ -68,7 +66,7 @@ class SubHeader extends StatelessWidget {
 
     return Text(
       'Pay and Manage Billers and Recharges',
-      style: TextStyle(fontSize: screenWidth * 0.035),
+      style: TextStyle(fontSize: 12.5),
     );
   }
 }
@@ -85,10 +83,7 @@ class RechargeHeadText extends StatelessWidget {
       children: [
         Text(
           'Top Up and Balances',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.045,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
         ),
         TextButton(
           onPressed: () {},
@@ -96,7 +91,7 @@ class RechargeHeadText extends StatelessWidget {
             'Add Recharge',
             style: TextStyle(
               color: DefaultColors.blueLightBase,
-              fontSize: screenWidth * 0.035,
+              fontSize: 12.5,
             ),
           ),
         ),

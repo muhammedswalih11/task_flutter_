@@ -15,10 +15,10 @@ class PointsEarnCard extends StatelessWidget {
         // color: const Color.fromARGB(255, 246, 251, 252),
         // color: Colors.black,
         color: DefaultColors.white_200,
-        borderRadius: BorderRadius.circular(screenWidth * 0.05),
+        borderRadius: BorderRadius.circular(23),
         border: Border.all(color: Colors.grey.shade400, width: 0.6),
       ),
-      padding: EdgeInsets.all(screenWidth * 0.03),
+      padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -26,20 +26,21 @@ class PointsEarnCard extends StatelessWidget {
             'assets/icons/chest.png',
             width: screenWidth * 0.05,
             height: screenHeight * 0.025,
-            color: DefaultColors.black,
+            color: DefaultColors.blue,
           ),
 
           Text(
             '1285 Reward Points earned',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: screenWidth * 0.036,
-            ),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
 
           Transform.rotate(
             angle: 0.5,
-            child: Icon(Icons.arrow_upward, size: screenWidth * 0.05),
+            child: Icon(
+              Icons.arrow_upward,
+              size: screenWidth * 0.05,
+              color: DefaultColors.blue,
+            ),
           ),
         ],
       ),

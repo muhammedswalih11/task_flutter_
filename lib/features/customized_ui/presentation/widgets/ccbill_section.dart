@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
+import 'package:flutter_tasks_/features/customized_ui/constants/customized_ui_service.dart';
 
 import '../../../../core/utils/colors.dart';
 
@@ -15,10 +15,7 @@ class CcBillSection extends StatelessWidget {
 
     final ccBills = ccService.getCcBills();
     return Padding(
-      padding: EdgeInsets.only(
-        right: screenWidth * 0.04,
-        left: screenWidth * 0.04,
-      ),
+      padding: EdgeInsets.only(right: 18, left: 18),
       child: ListView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
@@ -27,17 +24,17 @@ class CcBillSection extends StatelessWidget {
           final bill = ccBills[index];
           return Container(
             decoration: BoxDecoration(
-              color: DefaultColors.dashboardGray,
-              borderRadius: BorderRadius.circular(screenWidth * 0.03),
+              color: DefaultColors.blue_0,
+              borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.blueGrey.shade200, width: 0.6),
             ),
             child: Padding(
-              padding: EdgeInsets.all(screenWidth * 0.032),
+              padding: EdgeInsets.all(12),
               child: Container(
-                padding: EdgeInsets.all(screenWidth * 0.025),
+                padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: DefaultColors.white,
-                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,21 +43,16 @@ class CcBillSection extends StatelessWidget {
                       bill['month'] as String,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.030,
+                        fontSize: 12,
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          bill['dueAmount'] as String,
-                          style: TextStyle(fontSize: screenWidth * 0.042),
-                        ),
-                        Text(
-                          bill['dueDate'] as String,
-                          style: TextStyle(fontSize: screenWidth * 0.033),
-                        ),
-                      ],
+                    Text(
+                      bill['dueAmount'] as String,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: DefaultColors.gray8A,
+                      ),
                     ),
                     MaterialButton(
                       height: screenHeight * 0.030,
@@ -69,16 +61,14 @@ class CcBillSection extends StatelessWidget {
                         side: BorderSide(
                           color: DefaultColors.dashboarddarkBlue,
                         ),
-                        borderRadius: BorderRadius.circular(
-                          screenWidth * 0.045,
-                        ),
+                        borderRadius: BorderRadius.circular(25),
                       ),
                       onPressed: () {},
                       child: Text(
                         'Pay',
                         style: TextStyle(
                           color: DefaultColors.dashboarddarkBlue,
-                          fontSize: screenWidth * 0.036,
+                          fontSize: 12,
                         ),
                       ),
                     ),

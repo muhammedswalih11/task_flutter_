@@ -19,18 +19,16 @@ void showBillOverlay(
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.transparent,
+    backgroundColor: DefaultColors.transparent,
     builder: (context) {
       return Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(top: screenHeight * 0.04),
+            margin: EdgeInsets.only(top: 50),
             padding: EdgeInsets.all(screenWidth * 0.04),
             decoration: BoxDecoration(
               color: DefaultColors.white,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(screenWidth * 0.05),
-              ),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -42,7 +40,7 @@ void showBillOverlay(
                     Text(
                       'Manage Biller',
                       style: TextStyle(
-                        fontSize: screenWidth * 0.05,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -51,7 +49,7 @@ void showBillOverlay(
                         Text(
                           title,
                           style: TextStyle(
-                            fontSize: screenWidth * 0.05,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -66,7 +64,7 @@ void showBillOverlay(
                 ),
                 SizedBox(height: screenHeight * 0.025),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                  borderRadius: BorderRadius.circular(15),
                   child: Container(
                     decoration: BoxDecoration(
                       // color: Colors.black,
@@ -75,7 +73,7 @@ void showBillOverlay(
                         color: DefaultColors.blue_100,
                         width: 1,
                       ),
-                      borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -95,7 +93,7 @@ void showBillOverlay(
               ],
             ),
           ),
-          Positioned(right: screenWidth * 0.0100, child: CloseBill()),
+          Positioned(right: 4.000, child: CloseBill()),
         ],
       );
     },

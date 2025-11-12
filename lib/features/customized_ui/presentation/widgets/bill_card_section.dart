@@ -23,11 +23,11 @@ class BillCards extends StatelessWidget {
 
     return SizedBox(
       child: Container(
-        width: screenWidth * 0.43,
+        width: screenWidth * 0.35,
         decoration: BoxDecoration(
           // color: Colors.black,
           color: DefaultColors.white,
-          borderRadius: BorderRadius.circular(screenWidth * 0.035),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
             // color: Colors.blueGrey.shade200,
             color: DefaultColors.grayMedBase,
@@ -39,53 +39,41 @@ class BillCards extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.03,
-                vertical: screenWidth * 0.02,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
               decoration: BoxDecoration(
                 color: DefaultColors.dashboardLightBlue,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(screenWidth * 0.03),
-                  topRight: Radius.circular(screenWidth * 0.03),
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
                 ),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: screenWidth * 0.030,
+                    radius: 11.00,
                     backgroundImage: AssetImage(imageUrl),
                   ),
                   Spacer(),
                   Text(
                     title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: screenWidth * 0.035,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                 ],
               ),
             ),
             Spacer(),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.013,
-                vertical: screenWidth * 0.008,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
               child: Row(
                 children: [
                   Text(
                     amount,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: screenWidth * 0.035,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   Spacer(),
                   Transform.rotate(
                     angle: 0.5,
-                    child: Icon(trialicon, size: screenWidth * 0.055),
+                    child: Icon(trialicon, size: 18.05),
                   ),
                 ],
               ),

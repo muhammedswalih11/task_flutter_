@@ -19,31 +19,22 @@ class SpendRow extends StatelessWidget {
 
     return Row(
       children: [
-        CircleAvatar(
-          backgroundImage: AssetImage(imagePath),
-          radius: screenWidth * 0.037,
-        ),
+        CircleAvatar(backgroundImage: AssetImage(imagePath), radius: 14),
         SizedBox(width: screenWidth * 0.02),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: screenWidth * 0.038,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
             ),
-            Text(category, style: TextStyle(fontSize: screenWidth * 0.034)),
+            Text(category, style: TextStyle(fontSize: 12)),
           ],
         ),
         const Spacer(),
         Text(
           amount,
-          style: TextStyle(
-            fontSize: screenWidth * 0.038,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
       ],
     );

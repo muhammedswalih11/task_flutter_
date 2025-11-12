@@ -19,8 +19,8 @@ class BillActionButton extends StatelessWidget {
         alignment: Alignment.centerRight,
         child: isPaid
             ? CircleAvatar(
-                radius: screenWidth * 0.03,
-                backgroundColor: Colors.green,
+                radius: 16,
+                backgroundColor: DefaultColors.green54,
                 child: Icon(
                   Icons.check,
                   color: DefaultColors.white,
@@ -30,23 +30,16 @@ class BillActionButton extends StatelessWidget {
             : OutlinedButton(
                 onPressed: onPay,
                 style: OutlinedButton.styleFrom(
-                  minimumSize: Size(screenWidth * 0.14, screenHeight * 0.03),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.03,
-                    vertical: screenHeight * 0.005,
-                  ),
+                  minimumSize: Size(36.04, screenHeight * 0.03),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 7),
                   side: BorderSide(color: DefaultColors.blue),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(screenWidth * 0.045),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                 ),
                 child: Text(
                   'Pay',
-                  style: TextStyle(
-                    color: DefaultColors.blue,
-
-                    fontSize: screenWidth * 0.030,
-                  ),
+                  style: TextStyle(color: DefaultColors.blue, fontSize: 11.00),
                 ),
               ),
       ),

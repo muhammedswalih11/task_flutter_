@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tasks_/core/utils/colors.dart';
 
-import 'package:flutter_tasks_/features/customized_ui/domain/customized_ui_service.dart';
+import 'package:flutter_tasks_/features/customized_ui/constants/customized_ui_service.dart';
 import 'package:flutter_tasks_/features/customized_ui/presentation/widgets/bill_card_section.dart';
 
 class ActiveBillerSection2 extends StatelessWidget {
@@ -20,15 +20,12 @@ class ActiveBillerSection2 extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                right: screenWidth * 0.04,
-                left: screenWidth * 0.04,
-              ),
+              padding: EdgeInsets.only(right: 18, left: 18),
               child: Container(
                 height: screenHeight * 0.18,
                 decoration: BoxDecoration(
-                  color: DefaultColors.dashboardGray,
-                  borderRadius: BorderRadius.circular(screenWidth * 0.035),
+                  color: DefaultColors.blue_0,
+                  borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     color: DefaultColors.grayMedBase,
                     width: 0.6,
@@ -49,7 +46,7 @@ class ActiveBillerSection2 extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final card = billCards[index];
                     return Padding(
-                      padding: EdgeInsets.only(left: screenWidth * 0.076),
+                      padding: EdgeInsets.only(left: 30),
                       child: BillCards(
                         imageUrl: card['imageUrl'],
                         title: card['title'],

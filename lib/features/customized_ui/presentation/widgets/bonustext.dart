@@ -12,17 +12,11 @@ class BonusText extends StatelessWidget {
       children: [
         Text(
           '150 reward bonus',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.046,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         Text(
           'Claim upto 150 reward points after\nreaching the next transaction goal',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.032,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
         ),
       ],
     );

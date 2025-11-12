@@ -21,24 +21,21 @@ class BillInfo extends StatelessWidget {
           Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(screenWidth * 0.03),
+                borderRadius: BorderRadius.circular(15),
                 child: Image.asset(
                   bill['imageAsset'] as String,
-                  width: screenWidth * 0.045,
-                  height: screenWidth * 0.045,
+                  width: 18,
+                  height: 18,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Icon(Icons.error, size: screenWidth * 0.08);
                   },
                 ),
               ),
-              SizedBox(width: screenWidth * 0.014),
+              SizedBox(width: 4.04),
               Text(
                 bill['name'] as String,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: screenWidth * 0.04,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
               ),
             ],
           ),
@@ -46,7 +43,7 @@ class BillInfo extends StatelessWidget {
           Text(
             bill['dueDate'] as String,
             style: TextStyle(
-              fontSize: screenWidth * 0.032,
+              fontSize: 11.5,
               color: isPaid ? DefaultColors.green_0 : DefaultColors.red_0,
             ),
           ),

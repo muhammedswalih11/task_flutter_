@@ -15,29 +15,26 @@ class ProgressBarSection extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.only(
-        right: screenWidth * 0.04,
-        left: screenWidth * 0.04,
-      ),
+      padding: EdgeInsets.only(right: 18, left: 18),
       child: Container(
         decoration: BoxDecoration(
-          color: DefaultColors.dashboardGray,
+          color: DefaultColors.blue_0,
 
-          borderRadius: BorderRadius.circular(screenWidth * 0.035),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(color: DefaultColors.grayMedBase, width: 0.6),
         ),
-        padding: EdgeInsets.all(screenWidth * 0.035),
+        padding: EdgeInsets.all(15),
         child: Column(
           children: [
             const PointsEarnCard(),
             SizedBox(height: screenHeight * 0.02),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(screenWidth * 0.045),
+                borderRadius: BorderRadius.circular(15),
 
                 color: DefaultColors.white,
               ),
-              padding: EdgeInsets.all(screenWidth * 0.035),
+              padding: EdgeInsets.all(10),
               child: Column(
                 children: [
                   Row(
@@ -48,8 +45,8 @@ class ProgressBarSection extends StatelessWidget {
                         child: Text(
                           'Claim upto 150 reward points\nafter reaching the next\ntransaction goal',
                           style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),

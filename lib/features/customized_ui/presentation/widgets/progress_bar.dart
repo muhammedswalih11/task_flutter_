@@ -17,7 +17,7 @@ class ProgressBar extends StatelessWidget {
             height: screenHeight * 0.013,
             decoration: BoxDecoration(
               color: DefaultColors.blue_100,
-              borderRadius: BorderRadius.circular(screenWidth * 0.028),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Align(
               alignment: AlignmentGeometry.centerLeft,
@@ -27,20 +27,17 @@ class ProgressBar extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: DefaultColors.blue_200,
-                    borderRadius: BorderRadius.circular(screenWidth * 0.028),
+                    borderRadius: BorderRadius.circular(50),
                   ),
                 ),
               ),
             ),
           ),
         ),
-        SizedBox(width: screenWidth * 0.014),
+        SizedBox(width: 4.04),
         Text(
           'QAR 240 away',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: screenWidth * 0.037,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
         ),
       ],
     );

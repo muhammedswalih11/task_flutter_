@@ -28,17 +28,11 @@ class BillList extends StatelessWidget {
       },
       child: Container(
         height: screenHeight * 0.075,
-        margin: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.020,
-          vertical: screenHeight * 0.008,
-        ),
-        padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.024,
-          vertical: screenHeight * 0.010,
-        ),
+        margin: EdgeInsets.symmetric(horizontal: 7.00, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(
           color: DefaultColors.white,
-          borderRadius: BorderRadius.circular(screenWidth * 0.04),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

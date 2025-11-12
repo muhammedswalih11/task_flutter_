@@ -30,8 +30,10 @@ class CardSections extends ConsumerWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(
-            right: screenWidth * 0.03,
-            left: screenWidth * 0.03,
+            // right: screenWidth * 0.03,
+            // left: screenWidth * 0.03,
+            right: 13,
+            left: 13,
           ),
           child: Row(
             children: [
@@ -39,19 +41,16 @@ class CardSections extends ConsumerWidget {
                 child: Container(
                   height: screenHeight * 0.066,
                   child: Card(
-                    color: DefaultColors.dashboardGray,
+                    color: DefaultColors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(screenWidth * 0.04),
+                      borderRadius: BorderRadius.circular(15),
                       side: BorderSide(
                         color: DefaultColors.grayMedBase,
                         width: 0.6,
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(
-                        right: screenWidth * 0.02,
-                        left: screenWidth * 0.02,
-                      ),
+                      padding: EdgeInsets.only(right: 5, left: 5),
                       child: Row(
                         children: [
                           Transform.rotate(
@@ -75,7 +74,7 @@ class CardSections extends ConsumerWidget {
                           Text(
                             title,
                             style: TextStyle(
-                              fontSize: screenWidth * 0.042,
+                              fontSize: 15,
                               color: DefaultColors.black,
                             ),
                           ),

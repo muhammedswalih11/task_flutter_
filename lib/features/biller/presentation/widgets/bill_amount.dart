@@ -7,17 +7,12 @@ class BillAmount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Expanded(
       flex: 2,
       child: Text(
         '${amount.toStringAsFixed(2)} ${'QAR'}',
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: screenWidth * 0.04,
-        ),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
       ),
     );
   }

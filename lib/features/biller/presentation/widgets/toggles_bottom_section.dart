@@ -36,7 +36,7 @@ class ToggleWidget extends StatelessWidget {
           style: TextStyle(
             color: selected ? DefaultColors.white : DefaultColors.blue_600,
             fontWeight: FontWeight.w500,
-            fontSize: screenWidth * 0.035,
+            fontSize: 12.5,
           ),
         ),
       ),
@@ -59,11 +59,11 @@ class BottomCustomWidget extends StatelessWidget {
         return Column(
           children: [
             Container(
-              padding: EdgeInsets.all(screenWidth * 0.04),
+              padding: EdgeInsets.all(19),
               decoration: BoxDecoration(
                 // color: Colors.black,
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(screenWidth * 0.0375),
+                color: DefaultColors.white,
+                borderRadius: BorderRadius.circular(14),
               ),
               child: Image.asset(
                 iconpath[index],
@@ -75,17 +75,11 @@ class BottomCustomWidget extends StatelessWidget {
             SizedBox(height: 5),
             Align(
               alignment: AlignmentGeometry.center,
-              child: Text(
-                labels[index][0],
-                style: TextStyle(fontSize: screenWidth * 0.030),
-              ),
+              child: Text(labels[index][0], style: TextStyle(fontSize: 11.00)),
             ),
             Text(
               labels[index][1],
-              style: TextStyle(
-                fontSize: screenWidth * 0.030,
-                color: Colors.black,
-              ),
+              style: TextStyle(fontSize: 11.00, color: Colors.black),
             ),
           ],
         );

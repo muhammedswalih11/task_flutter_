@@ -27,13 +27,13 @@ class pointBox extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: DefaultColors.blue_200,
-        borderRadius: BorderRadius.circular(screenWidth * 0.03),
+        color: DefaultColors.dashboardLightBlue,
+        borderRadius: BorderRadius.circular(12),
         border: showBorder
-            ? Border.all(color: DefaultColors.blue_400, width: 1)
+            ? Border.all(color: DefaultColors.blue, width: 1)
             : null,
       ),
-      padding: EdgeInsets.all(screenWidth * 0.012),
+      padding: EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

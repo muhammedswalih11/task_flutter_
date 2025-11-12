@@ -68,7 +68,11 @@ class CustomizedUI extends StatelessWidget {
           ),
           title: const Text(
             'Customize Widgets',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 22,
+            ),
           ),
           flexibleSpace: Container(
             decoration: BoxDecoration(gradient: DefaultColors.appBarGradient),
@@ -80,9 +84,10 @@ class CustomizedUI extends StatelessWidget {
         child: Container(
           width: screenWidth,
           decoration: BoxDecoration(
+            color: DefaultColors.blue,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(screenWidth * 0.040),
-              topRight: Radius.circular(screenWidth * 0.040),
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
             ),
           ),
           child: ListView.builder(
@@ -92,21 +97,18 @@ class CustomizedUI extends StatelessWidget {
               switch (item['type']) {
                 case 'header':
                   return Padding(
-                    padding: EdgeInsets.only(
-                      top: screenHeight * 0.036,
-                      left: screenWidth * 0.04,
-                    ),
+                    padding: EdgeInsets.only(top: 50, left: 20),
                     child: Text(
                       item['title'],
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.048,
+                        fontSize: 18,
                       ),
                     ),
                   );
                 case 'card':
                   return Padding(
-                    padding: EdgeInsets.only(bottom: screenHeight * 0.012),
+                    padding: EdgeInsets.only(bottom: 8),
                     child: CardSections(
                       title: item['title'],
                       dropdownChild: item['widget'],
@@ -117,10 +119,7 @@ class CustomizedUI extends StatelessWidget {
                   );
                 case 'button':
                   return Padding(
-                    padding: EdgeInsets.only(
-                      top: screenHeight * 0.045,
-                      bottom: screenHeight * 0.02,
-                    ),
+                    padding: EdgeInsets.only(top: 140, bottom: 10),
                     child: const DoneButton(),
                   );
                 default:
