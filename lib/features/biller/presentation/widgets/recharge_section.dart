@@ -9,7 +9,6 @@ class RechargeAndBalancesSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final rechargeCards = ref.watch(rechargeCardProvider);
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Column(

@@ -37,14 +37,26 @@ class RechargeCard extends StatelessWidget {
                   Row(
                     children: [
                       CircleAvatar(
-                        radius: screenWidth * 0.025,
+                        radius: 14,
                         backgroundImage: AssetImage(model['imagePath']!),
                       ),
                       SizedBox(width: screenHeight * 0.012),
-                      Text(model['title']!, style: TextStyle(fontSize: 12.5)),
+                      Text(
+                        model['title']!,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
-                  Text(model['type']!, style: TextStyle(fontSize: 12.5)),
+                  Text(
+                    model['type']!,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: DefaultColors.grayBase,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: screenHeight * 0.025),

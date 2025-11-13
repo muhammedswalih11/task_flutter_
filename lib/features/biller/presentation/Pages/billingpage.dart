@@ -18,31 +18,25 @@ class BillsScreen extends ConsumerWidget {
     final activeBills = ref.watch(filteredActiveBillProvider);
     final paidBills = ref.watch(filteredPaidBillsProvider);
 
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 246, 242, 242),
-      // backgroundColor: DefaultColors.blue_0,
-      backgroundColor: DefaultColors.white,
+      backgroundColor: DefaultColors.blue_0,
+
       body: SafeArea(
         top: false,
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(18, 50, 18, 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Header1(),
-                    SizedBox(height: screenHeight * 0.015),
-                    Header2(),
-
-                    SizedBox(height: screenHeight * 0.008),
-                    SubHeader(),
-                  ],
-                ),
+                padding: const EdgeInsets.only(top: 55),
+                child: HeaderSection1(),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(18, 5, 18, 15),
+                child: HeaderSection(),
               ),
             ),
             SliverToBoxAdapter(

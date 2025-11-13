@@ -9,8 +9,6 @@ class BillSearchBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return TextField(
       onChanged: (query) =>
           ref.read(CurrentSearchProvider.notifier).state = query,

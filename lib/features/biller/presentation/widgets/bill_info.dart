@@ -6,7 +6,7 @@ class BillInfo extends StatelessWidget {
   final Map<String, dynamic> bill;
   final bool isPaid;
 
-  const BillInfo({required this.bill, required this.isPaid});
+  const BillInfo({super.key, required this.bill, required this.isPaid});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,10 @@ class BillInfo extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(width: 4.04),
+              SizedBox(width: 6),
               Text(
                 bill['name'] as String,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ],
           ),
@@ -43,7 +43,7 @@ class BillInfo extends StatelessWidget {
           Text(
             bill['dueDate'] as String,
             style: TextStyle(
-              fontSize: 11.5,
+              fontSize: 13,
               color: isPaid ? DefaultColors.green_0 : DefaultColors.red_0,
             ),
           ),

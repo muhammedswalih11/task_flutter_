@@ -49,7 +49,7 @@ class CustomizedUI extends StatelessWidget {
       },
       {
         'type': 'card',
-        'title': 'Rewards(Large)',
+        'title': 'Rewards (Large)',
         'widget': RewardsLaregSection(),
         'provider': dropdown5Provider,
         'showTrailingIcon': false,
@@ -59,73 +59,89 @@ class CustomizedUI extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenHeight * 0.12),
-        child: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
-          ),
-          title: const Text(
-            'Customize Widgets',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 22,
-            ),
-          ),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(gradient: DefaultColors.appBarGradient),
-          ),
-        ),
-      ),
-
-      body: SafeArea(
-        child: Container(
-          width: screenWidth,
-          decoration: BoxDecoration(
-            color: DefaultColors.blue,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            ),
-          ),
-          child: ListView.builder(
-            itemCount: sectionList.length,
-            itemBuilder: (context, index) {
-              final item = sectionList[index];
-              switch (item['type']) {
-                case 'header':
-                  return Padding(
-                    padding: EdgeInsets.only(top: 50, left: 20),
-                    child: Text(
-                      item['title'],
+      extendBodyBehindAppBar: true,
+      body: Container(
+        width: screenWidth,
+        height: screenHeight,
+        decoration: BoxDecoration(gradient: DefaultColors.appBarGradient),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 60),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    ),
+                    const SizedBox(width: 8),
+                    const Text(
+                      'Customize Widgets',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        color: Colors.white,
+                        fontSize: 22,
                       ),
                     ),
-                  );
-                case 'card':
-                  return Padding(
-                    padding: EdgeInsets.only(bottom: 8),
-                    child: CardSections(
-                      title: item['title'],
-                      dropdownChild: item['widget'],
-                      stateProvider: item['provider'],
-                      showTriallingIcon: item['showTrailingIcon'] ?? true,
-                      isblueIcon: item['isBlueIcon'] ?? true,
-                    ),
-                  );
-                case 'button':
-                  return Padding(
-                    padding: EdgeInsets.only(top: 140, bottom: 10),
-                    child: const DoneButton(),
-                  );
-                default:
-                  return const SizedBox.shrink();
-              }
-            },
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              Container(
+                width: double.infinity,
+
+                constraints: BoxConstraints(minHeight: screenHeight * 0.90),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: sectionList.length,
+                  itemBuilder: (context, index) {
+                    final item = sectionList[index];
+                    switch (item['type']) {
+                      case 'header':
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 50, left: 20),
+                          child: Text(
+                            item['title'],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                        );
+                      case 'card':
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: CardSections(
+                            title: item['title'],
+                            dropdownChild: item['widget'],
+                            stateProvider: item['provider'],
+                            showTriallingIcon: item['showTrailingIcon'] ?? true,
+                            isblueIcon: item['isBlueIcon'] ?? true,
+                          ),
+                        );
+                      case 'button':
+                        return const Padding(
+                          padding: EdgeInsets.only(top: 140, bottom: 10),
+                          child: DoneButton(),
+                        );
+                      default:
+                        return const SizedBox.shrink();
+                    }
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),

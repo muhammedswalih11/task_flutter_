@@ -2,71 +2,66 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/colors.dart';
 
-class Header1 extends StatelessWidget {
-  const Header1({super.key});
+class HeaderSection extends StatelessWidget {
+  const HeaderSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+        Row(
+          children: [
+            Text(
+              'You Have',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(width: screenWidth * 0.02),
+            Text(
+              '4 Bills due',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: DefaultColors.blueLightBase,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
-        SizedBox(width: 12),
+        SizedBox(height: 4),
         Text(
-          'Billers',
-          style: TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: DefaultColors.blue4,
-          ),
+          'Pay and Manage Billers and Recharges',
+          style: TextStyle(fontSize: 14),
         ),
       ],
     );
   }
 }
 
-class Header2 extends StatelessWidget {
-  const Header2({super.key});
+class HeaderSection1 extends StatelessWidget {
+  const HeaderSection1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Row(
       children: [
-        Text(
-          'You Have',
-          style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(width: screenWidth * 0.02),
-        Text(
-          '4 Bills due',
-          style: TextStyle(
-            fontSize: 18.0,
-            color: DefaultColors.blueLightBase,
-            fontWeight: FontWeight.bold,
-          ),
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back_ios, size: 18),
+              onPressed: () {},
+            ),
+            Text(
+              'Billers',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                color: DefaultColors.blue4,
+              ),
+            ),
+          ],
         ),
       ],
-    );
-  }
-}
-
-class SubHeader extends StatelessWidget {
-  const SubHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Text(
-      'Pay and Manage Billers and Recharges',
-      style: TextStyle(fontSize: 12.5),
     );
   }
 }
@@ -76,8 +71,6 @@ class RechargeHeadText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -89,10 +82,7 @@ class RechargeHeadText extends StatelessWidget {
           onPressed: () {},
           child: Text(
             'Add Recharge',
-            style: TextStyle(
-              color: DefaultColors.blueLightBase,
-              fontSize: 12.5,
-            ),
+            style: TextStyle(color: DefaultColors.blueLightBase, fontSize: 15),
           ),
         ),
       ],

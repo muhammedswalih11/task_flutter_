@@ -17,7 +17,6 @@ class BillSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (bills.isEmpty) return SliverToBoxAdapter(child: SizedBox.shrink());
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return SliverList.list(
       children: [
@@ -33,9 +32,9 @@ class BillSection extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  "Add Biller",
+                  "Add New Biller",
                   style: TextStyle(
-                    fontSize: 12.5,
+                    fontSize: 15,
                     color: DefaultColors.blueLightBase,
                   ),
                 ),

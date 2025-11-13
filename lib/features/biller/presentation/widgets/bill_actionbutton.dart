@@ -19,7 +19,7 @@ class BillActionButton extends StatelessWidget {
         alignment: Alignment.centerRight,
         child: isPaid
             ? CircleAvatar(
-                radius: 16,
+                radius: 14,
                 backgroundColor: DefaultColors.green54,
                 child: Icon(
                   Icons.check,

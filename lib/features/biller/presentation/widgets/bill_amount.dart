@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BillAmount extends StatelessWidget {
   final double amount;
 
-  const BillAmount({required this.amount});
+  const BillAmount({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BillAmount extends StatelessWidget {
       child: Text(
         '${amount.toStringAsFixed(2)} ${'QAR'}',
         textAlign: TextAlign.center,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
     );
   }
